@@ -17,8 +17,18 @@ public class Name : MonoBehaviour {
         this.column = column;
     }
 
+    public int GetRow()
+    {
+        return this.row;
+    }
+
+    public int GetColumn()
+    {
+        return this.column;
+    }
+
     private void OnMouseDown()
     {
-        Debug.Log(this.row + ", " + this.column);
+        //Debug.Log(this.row + ", " + this.column); //print out the name of the currently selected tile
     }
 }
