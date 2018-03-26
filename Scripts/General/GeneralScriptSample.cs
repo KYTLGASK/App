@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileScriptSample : MonoBehaviour {
+public class GeneralScriptSample : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

@@ -51,6 +51,10 @@ public class PopulateBoard : MonoBehaviour {
             {
                 currentTile = (GameObject)Instantiate(tile, new Vector3(x, height/2, y), Quaternion.identity, transform);
                 currentTile.name = i + ", "+j; //row,column
+
+                currentTile.GetComponent<Name>().SetRow(i);
+                currentTile.GetComponent<Name>().SetColumn(j);
+
                 x += length + spacingL;
             }
             y += (width + spacingW); // (+) if initializing board from bottom up, (-) otherwise 
