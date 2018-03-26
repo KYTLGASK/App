@@ -5,6 +5,8 @@ using UnityEngine;
 /// <summary>
 /// Script which contains all sorts of distance measuring fucntions.
 /// 
+/// THIS SCRIPT MUST BE PLACED ON THE GAME BOARD!!!!!
+/// 
 /// 
 /// some ways to use this script:
 /// 
