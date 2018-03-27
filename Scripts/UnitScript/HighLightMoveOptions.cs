@@ -16,13 +16,14 @@ public class HighLightMoveOptions : MonoBehaviour {
 
     public void OnMouseDown()
     {
-        Debug.Log("mouse down");
-        if (transform.parent != null)// if there is a parent
+        //Debug.Log("mouse down");
+        if (transform.parent != null && transform.GetComponent<MoveScript>().isSelected)// if there is a parent and the unit is selected
         {
-            Debug.Log("there is a parent");
+            //Debug.Log("there is a parent");
             //GameObject[] tiles = transform.parent.parent.Get    
             int tilesNum = transform.parent.parent.childCount;
-            Debug.Log(tilesNum);
+            //Debug.Log(tilesNum);
+            GameObject.Find("Board").GetComponent<TouchDisHighlight>().DisAll();//dishighlights all tiles
             for (int i = 0; i < tilesNum; i++)// walks through every tile
             {
                 //Debug.Log("tile num: " + i);
@@ -32,6 +33,10 @@ public class HighLightMoveOptions : MonoBehaviour {
                     transform.parent.parent.GetChild(i).GetComponent<HighlightOnTouch>().Highlight();//highlights the tile
                 }
             }
+        }
+        else if(transform.parent != null && !transform.GetComponent<MoveScript>().isSelected)//basically if the unit was double clicked  dishighlight all
+        {
+            GameObject.Find("Board").GetComponent<TouchDisHighlight>().DisAll();//dishighlights all tiles
         }
         
     }
