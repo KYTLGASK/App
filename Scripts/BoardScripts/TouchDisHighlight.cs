@@ -17,7 +17,7 @@ public class TouchDisHighlight : MonoBehaviour
     }
     public void DisAll()
     {
-        for (int i = 0; i < transform.GetChildCount(); i++)
+        for (int i = 0; i < transform.childCount; i++)
         {
             (transform.GetChild(i)).GetComponent<Renderer>().material.color = Color.green;
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Script which contains all sorts of distance measuring fucntions.
 /// 
-/// THIS SCRIPT MUST BE PLACED ON THE GAME BOARD!!!!!
+/// THIS SCRIPT MUST BE PLACED ON THE GAME BOARD OR TILE!!!!!
 /// 
 /// 
 /// some ways to use this script:
@@ -103,5 +103,53 @@ public class Distance : MonoBehaviour
         }
 
         return withinRange;
+    }
+
+    public int Dist(int row, int col)
+    {
+        //script must be attached to a tile object for this function to work.
+        int tile_row = transform.parent.gameObject.GetComponent<Name>().GetRow();
+        int tile_col = transform.parent.gameObject.GetComponent<Name>().GetColumn();
+
+        return Dist(row, col, tile_row, tile_col);
+    }
+
+    /*public bool InRange(int dist, int row, int col)
+    {
+        //this script must be attached to a tile object for this function to work.
+        int tile_row = transform.parent.gameObject.GetComponent<Name>().GetRow();
+        int tile_col = transform.parent.gameObject.GetComponent<Name>().GetColumn();
+
+        int dist_between = Dist(tile_row, tile_col, row, col);
+
+        return dist_between <= dist;
+    }
+
+    public bool InRange(int dist, GameObject go)
+    {
+        int tile_rowB = go.GetComponent<Name>().GetRow();
+        int tile_colB = go.GetComponent<Name>().GetColumn();
+
+        return InRange(dist, tile_rowB, tile_colB);
+    }*/
+
+
+    public bool InRange(int dist, int row, int col)
+    {
+        //this script must be attached to a tile object for this function to work.
+        int tile_row = transform.gameObject.GetComponent<Name>().GetRow();
+        int tile_col = transform.gameObject.GetComponent<Name>().GetColumn();
+
+        int dist_between = Dist(tile_row, tile_col, row, col);
+
+        return dist_between <= dist;
+    }
+
+    public bool InRange(int dist, GameObject go)
+    {
+        int tile_rowB = go.GetComponent<Name>().GetRow();
+        int tile_colB = go.GetComponent<Name>().GetColumn();
+
+        return InRange(dist, tile_rowB, tile_colB);
     }
 }

@@ -3,25 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WarriorActivities : MonoBehaviour {
-    public int attack = 40;//attack of the unit
-    public int health = 100;//unit's health
-    public int speed = 2;// unit's speed
-    public int team = 1;// will be team 1 or team 2
-    public int range = 1;
-    // Use this for initialization
+     int attack = 40;//attack of the unit
+     int health = 100;//unit's health
+     int speed = 2;// unit's speed
+     int team = 1;// will be team 1 or team 2
+     int initiative = 8;
+     //int speed = 2;
+     // Use this for initialization
     void Start()
     {
-        attack = 40;
-        health = 100;//unit's health
-        speed = 2;// unit's speed
-        team = 1;// will be team 1 or team 2
+        transform.GetComponent<BasicUnitProperties>().SetAttack(attack);
+        transform.GetComponent<BasicUnitProperties>().SetHealth(health);
+        transform.GetComponent<BasicUnitProperties>().SetTeam(team);
+        transform.GetComponent<BasicUnitProperties>().SetSpeed(speed);
+        transform.GetComponent<BasicUnitProperties>().SetInitiative(initiative);
+
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        this.attack = transform.GetComponent<BasicUnitProperties>().GetAttack();
+        this.health = transform.GetComponent<BasicUnitProperties>().GetHealth();
+        this.team = transform.GetComponent<BasicUnitProperties>().GetTeam();
+        this.speed = transform.GetComponent<BasicUnitProperties>().GetSpeed();
+        this.initiative = transform.GetComponent<BasicUnitProperties>().GetInitiative();
     }
 
     public void ChangeAttackBy()//if there will be an option to change the attack(spells, hero powers etc)
