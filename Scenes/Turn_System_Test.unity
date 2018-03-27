@@ -150,7 +150,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4348693993529996, guid: 7e2b815dddf90674f8b6b1dc3f8f112d, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114077085823834734, guid: 7e2b815dddf90674f8b6b1dc3f8f112d,
         type: 2}
@@ -283,7 +283,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4348693993529996, guid: 7e2b815dddf90674f8b6b1dc3f8f112d, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1578331236680318, guid: 7e2b815dddf90674f8b6b1dc3f8f112d, type: 2}
       propertyPath: m_Name
@@ -336,10 +336,10 @@ Transform:
   m_LocalPosition: {x: 1.51, y: -0.69729614, z: 0.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 324758090}
-  - {fileID: 1506206953}
-  - {fileID: 1748258731}
   - {fileID: 1519027333}
+  - {fileID: 1748258731}
+  - {fileID: 1506206953}
+  - {fileID: 324758090}
   - {fileID: 899662990}
   - {fileID: 1040552924}
   m_Father: {fileID: 0}
@@ -355,6 +355,46 @@ Transform:
   m_PrefabParentObject: {fileID: 4348693993529996, guid: 7e2b815dddf90674f8b6b1dc3f8f112d,
     type: 2}
   m_PrefabInternal: {fileID: 64084170}
+--- !u!1 &503306876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 503306878}
+  - component: {fileID: 503306877}
+  m_Layer: 0
+  m_Name: Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &503306877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 503306876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e89da40f0c3d70e45aae2a6f57ba3c7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &503306878
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 503306876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.12739539, y: 0.5038552, z: -0.907588}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &698588407
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,7 +602,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4348693993529996, guid: 7e2b815dddf90674f8b6b1dc3f8f112d, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1578331236680318, guid: 7e2b815dddf90674f8b6b1dc3f8f112d, type: 2}
       propertyPath: m_Name
@@ -610,12 +650,12 @@ Transform:
   m_LocalPosition: {x: -5.06, y: -0.69729614, z: 1.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 940499849}
-  - {fileID: 1649028618}
-  - {fileID: 876659529}
   - {fileID: 376276069}
-  - {fileID: 1839658760}
+  - {fileID: 876659529}
   - {fileID: 1222887423}
+  - {fileID: 940499849}
+  - {fileID: 1839658760}
+  - {fileID: 1649028618}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -752,7 +792,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4348693993529996, guid: 7e2b815dddf90674f8b6b1dc3f8f112d, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1578331236680318, guid: 7e2b815dddf90674f8b6b1dc3f8f112d, type: 2}
       propertyPath: m_Name
@@ -817,7 +857,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4348693993529996, guid: 7e2b815dddf90674f8b6b1dc3f8f112d, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1578331236680318, guid: 7e2b815dddf90674f8b6b1dc3f8f112d, type: 2}
       propertyPath: m_Name
@@ -968,7 +1008,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4348693993529996, guid: 7e2b815dddf90674f8b6b1dc3f8f112d, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114077085823834734, guid: 7e2b815dddf90674f8b6b1dc3f8f112d,
         type: 2}
@@ -1023,7 +1063,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4348693993529996, guid: 7e2b815dddf90674f8b6b1dc3f8f112d, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1578331236680318, guid: 7e2b815dddf90674f8b6b1dc3f8f112d, type: 2}
       propertyPath: m_Name
@@ -1083,11 +1123,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4348693993529996, guid: 7e2b815dddf90674f8b6b1dc3f8f112d, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1578331236680318, guid: 7e2b815dddf90674f8b6b1dc3f8f112d, type: 2}
       propertyPath: m_Name
-      value: Player 2 Unit 4
+      value: Player 2 Unit 1
       objectReference: {fileID: 0}
     - target: {fileID: 114077085823834734, guid: 7e2b815dddf90674f8b6b1dc3f8f112d,
         type: 2}
@@ -1153,7 +1193,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4348693993529996, guid: 7e2b815dddf90674f8b6b1dc3f8f112d, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1578331236680318, guid: 7e2b815dddf90674f8b6b1dc3f8f112d, type: 2}
       propertyPath: m_Name
@@ -1276,7 +1316,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4348693993529996, guid: 7e2b815dddf90674f8b6b1dc3f8f112d, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1578331236680318, guid: 7e2b815dddf90674f8b6b1dc3f8f112d, type: 2}
       propertyPath: m_Name
