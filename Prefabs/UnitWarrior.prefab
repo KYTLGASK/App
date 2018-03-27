@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 23003740631580080}
   - component: {fileID: 114782190918250528}
   - component: {fileID: 114718835335088726}
+  - component: {fileID: 114343915304247776}
+  - component: {fileID: 114186892538349206}
   m_Layer: 0
   m_Name: UnitWarrior
   m_TagString: Untagged
@@ -97,6 +99,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114186892538349206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1371547802814860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 322a3cd84b3c47f4aa2102708b678bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114343915304247776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1371547802814860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0662eda63d4f74e8708ce2c5f9c9de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114718835335088726
 MonoBehaviour:
   m_ObjectHideFlags: 1

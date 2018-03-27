@@ -34,6 +34,9 @@ public class PopulateBoard : MonoBehaviour {
         height = tile.transform.localScale.y;
         width = tile.transform.localScale.z;
         length = tile.transform.localScale.x;
+        //height = transform.localScale.y; //added by leon
+        //width = transform.localScale.y; //added by leon
+        //length = transform.localScale.y; // added by leon
 
         float sumX = gridX * length + (gridX - 1) * spacingL;
         initialX = (initialX - sumX / 2) + length / 2;
@@ -50,6 +53,7 @@ public class PopulateBoard : MonoBehaviour {
             for (int j=0; j < gridX; j++)
             {
                 currentTile = (GameObject)Instantiate(tile, new Vector3(x, height/2, y), Quaternion.identity, transform);
+
                 currentTile.name = x + "," + y;
                 x += length + spacingL;
             }

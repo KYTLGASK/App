@@ -13,12 +13,21 @@ public class MoveScript : MonoBehaviour {
 	}
     private void OnMouseDown()
     {
-        isSelected = !isSelected;//if was selected now is not, if was not selected it is now.
-        GameObject selected = GameObject.Find("SelectedUnit");//get the "inviseble" unit
-        if (isSelected) {
+        if (!transform.GetComponent<WarriorActivities>().IsBeingAttacked()) {//if unit is not being attacked 
+            isSelected = !isSelected;//if was selected now is not, if was not selected it is now.
+            GameObject selected = GameObject.Find("SelectedUnit");//get the "inviseble" unit
+            if (GameObject.Find(selected.GetComponent<SelectedUnitMove>().CurrUnitName) != null && GameObject.Find(selected.GetComponent<SelectedUnitMove>().CurrUnitName) != transform)//if there was a friendly unit selected and is not the same unit
+            {
+                //GameObject.Find(selected.GetComponent<SelectedUnitMove>().CurrUnitName).GetComponent<MoveScript>().isSelected = false;
+            }
+            if (isSelected)
+            {
+                //changes the is selected in the selected unit before
+                selected.GetComponent<SelectedUnitMove>().CurrUnitName = transform.name;//if this unit is selected store it's name in the "invisible" one
+            }
             
-            selected.GetComponent<SelectedUnitMove>().CurrUnitName = transform.name;//if this unit is selected store it's name in the "invisible" one
+            selected.GetComponent<SelectedUnitMove>().isSelected = isSelected;//changes the boolean value in the "invisible" unit
+            //selected.GetComponent<SelectedUnitMove>().name = "";//changes the name 
         }
-        selected.GetComponent<SelectedUnitMove>().isSelected = isSelected;//changes the boolean value in the "invisible" unit
     }
 }
