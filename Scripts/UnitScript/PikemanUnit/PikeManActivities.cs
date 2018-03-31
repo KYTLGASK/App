@@ -2,26 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WarriorActivities : MonoBehaviour
-{
-    int attack = 50;//attack of the unit
+public class PikeManActivities : MonoBehaviour {
+    int attack = 40;//attack of the unit
     int health = 100;//unit's health
-    int speed = 3;// unit's speed
-    int team = 1;// will be team 1 or team 2
+    int speed = 2;// unit's speed
+    int team = 2;// will be team 1 or team 2
     int initiative = 8;
-    int range = 1; 
+    int range = 2;
     bool attacked = false;
     bool moved = false;
-    
+
     // Use this for initialization
-    BasicUnitProperties GetBasicUnitProps()
-    {
-        return transform.GetComponent<BasicUnitProperties>();
-    }
     void Start()
     {
-        BasicUnitProperties bp = GetBasicUnitProps();
-
         transform.GetComponent<BasicUnitProperties>().SetAttack(attack);
         transform.GetComponent<BasicUnitProperties>().SetRange(range);
         transform.GetComponent<BasicUnitProperties>().SetHealth(health);

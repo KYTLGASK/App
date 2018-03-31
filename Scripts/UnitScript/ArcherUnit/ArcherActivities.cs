@@ -2,26 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WarriorActivities : MonoBehaviour
+public class ArcherActivities : MonoBehaviour
 {
-    int attack = 50;//attack of the unit
+    int attack = 20;//attack of the unit
     int health = 100;//unit's health
-    int speed = 3;// unit's speed
-    int team = 1;// will be team 1 or team 2
+    int speed = 1;// unit's speed
+    int team = 2;// will be team 1 or team 2
     int initiative = 8;
-    int range = 1; 
+    int range = 5;
     bool attacked = false;
     bool moved = false;
-    
+
     // Use this for initialization
-    BasicUnitProperties GetBasicUnitProps()
-    {
-        return transform.GetComponent<BasicUnitProperties>();
-    }
     void Start()
     {
-        BasicUnitProperties bp = GetBasicUnitProps();
-
         transform.GetComponent<BasicUnitProperties>().SetAttack(attack);
         transform.GetComponent<BasicUnitProperties>().SetRange(range);
         transform.GetComponent<BasicUnitProperties>().SetHealth(health);
@@ -38,7 +32,7 @@ public class WarriorActivities : MonoBehaviour
         this.team = transform.GetComponent<BasicUnitProperties>().GetTeam();
         this.speed = transform.GetComponent<BasicUnitProperties>().GetSpeed();
         this.initiative = transform.GetComponent<BasicUnitProperties>().GetInitiative();
-        if (transform.GetComponent<BasicUnitProperties>().attacked && transform.GetComponent<BasicUnitProperties>().moved)
+        if (transform.GetComponent<BasicUnitProperties>().attacked || transform.GetComponent<BasicUnitProperties>().moved)
         {
             transform.GetComponent<BasicUnitProperties>().finishedTurn = true;
         }

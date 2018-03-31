@@ -114,26 +114,6 @@ public class Distance : MonoBehaviour
         return Dist(row, col, tile_row, tile_col);
     }
 
-    /*public bool InRange(int dist, int row, int col)
-    {
-        //this script must be attached to a tile object for this function to work.
-        int tile_row = transform.parent.gameObject.GetComponent<Name>().GetRow();
-        int tile_col = transform.parent.gameObject.GetComponent<Name>().GetColumn();
-
-        int dist_between = Dist(tile_row, tile_col, row, col);
-
-        return dist_between <= dist;
-    }
-
-    public bool InRange(int dist, GameObject go)
-    {
-        int tile_rowB = go.GetComponent<Name>().GetRow();
-        int tile_colB = go.GetComponent<Name>().GetColumn();
-
-        return InRange(dist, tile_rowB, tile_colB);
-    }*/
-
-
     public bool InRange(int dist, int row, int col)
     {
         //this script must be attached to a tile object for this function to work.
