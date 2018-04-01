@@ -4,19 +4,6 @@ using UnityEngine;
 
 public class HighLightMoveOptions : MonoBehaviour
 {
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void HighlightMoveOptions()
     {
         if (transform.parent != null && transform.GetComponent<MoveScript>().isSelected)// if there is a parent and the unit is selected
