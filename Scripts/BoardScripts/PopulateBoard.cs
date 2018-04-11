@@ -12,7 +12,7 @@ public class PopulateBoard : MonoBehaviour {
     public GameObject tile;
     public Camera FirstPersonCam, ThirdPersonCam;
     public KeyCode TKey;
-    public bool camSwitch = false;
+    public bool camSwitch = true;
 
 
 
@@ -30,7 +30,7 @@ public class PopulateBoard : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+        TKey = KeyCode.Space;
         height = tile.transform.localScale.y;
         width = tile.transform.localScale.z;
         length = tile.transform.localScale.x;

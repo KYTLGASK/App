@@ -6,7 +6,7 @@ public class HighLightMoveOptions : MonoBehaviour
 {
     public void HighlightMoveOptions()
     {
-        if (transform.parent != null && transform.GetComponent<MoveScript>().isSelected)// if there is a parent and the unit is selected
+        if (transform.parent != null && transform.GetComponent<BasicUnitProperties>().isSelected)// if there is a parent and the unit is selected
         {
             int tilesNum = transform.parent.parent.childCount;
             GameObject.Find("Board").GetComponent<TouchDisHighlight>().DisAll();//dishighlights all tiles
@@ -18,7 +18,7 @@ public class HighLightMoveOptions : MonoBehaviour
                 }
             }
         }
-        else if (transform.parent != null && !transform.GetComponent<MoveScript>().isSelected)//basically if the unit was double clicked  dishighlight all
+        else if (transform.parent != null && !transform.GetComponent<BasicUnitProperties>().isSelected)//basically if the unit was double clicked  dishighlight all
         {
             GameObject.Find("Board").GetComponent<TouchDisHighlight>().DisAll();//dishighlights all tiles
         }

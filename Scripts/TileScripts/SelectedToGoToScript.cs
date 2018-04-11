@@ -13,7 +13,7 @@ public class SelectedToGoToScript : MonoBehaviour
             
                 GameObject unitToMove = GameObject.Find(selected.GetComponent<SelectedUnitMove>().CurrUnitName);//the unit which is supposed to move
             if (unitToMove != null) {//if unit to move is not null
-                unitToMove.GetComponent<MoveScript>().isSelected = !unitToMove.GetComponent<MoveScript>().isSelected;//inform the real unit that he is no more selected                                                                                      
+                unitToMove.GetComponent<BasicUnitProperties>().isSelected = !unitToMove.GetComponent<BasicUnitProperties>().isSelected;//inform the real unit that he is no more selected                                                                                      
             }    
                 selected.GetComponent<SelectedUnitMove>().isSelected = false;//there is no more a selected unit
                 if ((transform.childCount < 6 && unitToMove.transform.parent == null) //if there is no unit on this tile(apparently there are 5 children which are the borders and the center) and the unit is in the start  of the game

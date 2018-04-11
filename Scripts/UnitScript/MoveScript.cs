@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // this is for the unit, when it is pressed the "invisible " unit stores its data
-public class MoveScript : MonoBehaviour
+public class MveScript : MonoBehaviour
 {
 
     public bool isSelected = false;//was the unit selected
@@ -13,9 +13,10 @@ public class MoveScript : MonoBehaviour
     {
 
     }
-    public void Move()
+
+    /*public void Move()
     {
-        if (!transform.GetComponent<BasicUnitProperties>().IsBeingAttacked())
+        if (!transform.GetComponent<BasicUnitProperties>().IsBeingAttacked() && !transform.GetComponent<BasicUnitProperties>().HasMoved())
         {//if unit is not being attacked 
             isSelected = !isSelected;//if was selected now is not, if was not selected it is now.
             GameObject selected = GameObject.Find("SelectedUnit");//get the "inviseble" unit
@@ -32,5 +33,5 @@ public class MoveScript : MonoBehaviour
             selected.GetComponent<SelectedUnitMove>().isSelected = isSelected;//changes the boolean value in the "invisible" unit
             //selected.GetComponent<SelectedUnitMove>().name = "";//changes the name 
         }
-    }
+    }*/
 }

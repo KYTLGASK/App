@@ -32,7 +32,7 @@ public class ArcherActivities : MonoBehaviour
         this.team = transform.GetComponent<BasicUnitProperties>().GetTeam();
         this.speed = transform.GetComponent<BasicUnitProperties>().GetSpeed();
         this.initiative = transform.GetComponent<BasicUnitProperties>().GetInitiative();
-        if (transform.GetComponent<BasicUnitProperties>().attacked || transform.GetComponent<BasicUnitProperties>().moved)
+        if (transform.GetComponent<BasicUnitProperties>().HasAttacked() || transform.GetComponent<BasicUnitProperties>().HasMoved())
         {
             transform.GetComponent<BasicUnitProperties>().finishedTurn = true;
         }
