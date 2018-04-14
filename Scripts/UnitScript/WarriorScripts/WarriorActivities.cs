@@ -20,7 +20,7 @@ public class WarriorActivities : MonoBehaviour
     }
     void Start()
     {
-        BasicUnitProperties bp = GetBasicUnitProps();
+        //BasicUnitProperties bp = GetBasicUnitProps();
 
         transform.GetComponent<BasicUnitProperties>().SetAttack(attack);
         transform.GetComponent<BasicUnitProperties>().SetRange(range);

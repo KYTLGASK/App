@@ -14,8 +14,10 @@ public class ShowPropertiesOnHoldScript : MonoBehaviour {
     // Update is called once per frame
     private float holdTime = 0.8f; //the time you have to touch the unit to show the properties
     private float acumTime = 0;//current touch duration
-    void OnMouseOver()//this is for the touch too +-
-    {  
+    public void OnMouseOverFunction()//this is for the touch too +-
+    {
+        if (Input.touchCount != 0)
+        {
             acumTime += Input.GetTouch(0).deltaTime;
             if (acumTime >= holdTime)
             {
@@ -25,7 +27,7 @@ public class ShowPropertiesOnHoldScript : MonoBehaviour {
                                         "health: " + transform.GetComponent<BasicUnitProperties>().GetHealth() + "\n" +
                                         "speed: " + transform.GetComponent<BasicUnitProperties>().GetSpeed() + "\n" +
                                         "range: " + transform.GetComponent<BasicUnitProperties>().GetRange() + "\n" +
-                                        "initiative: " + transform.GetComponent<BasicUnitProperties>().GetInitiative() + "\n" ;
+                                        "initiative: " + transform.GetComponent<BasicUnitProperties>().GetInitiative() + "\n";
             }
 
             if (Input.GetTouch(0).phase == TouchPhase.Ended)// if you no longer hold
@@ -33,5 +35,6 @@ public class ShowPropertiesOnHoldScript : MonoBehaviour {
                 acumTime = 0;
                 unitProperties.text = "";
             }
+        }
     }   
 }

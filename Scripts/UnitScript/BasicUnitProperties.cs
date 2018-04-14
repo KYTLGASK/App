@@ -123,6 +123,7 @@ public class BasicUnitProperties : MonoBehaviour
     }
 
     //if there was a unit selected and it's team number is not the same this unit gets hit
+    //this function checks if the unit was attacked and then does the right action
     public void Attacked()
     {
         GameObject invisible = GameObject.Find("SelectedUnit");//the invisible 
@@ -159,8 +160,10 @@ public class BasicUnitProperties : MonoBehaviour
 
     public void Move()
     {
-        if (IsBeingAttacked())//if unit is not being attacked 
+        Debug.Log("im in");
+        if (!IsBeingAttacked())//if unit is not being attacked 
         {
+            Debug.Log("im in and this unit is not being attacked");
             isSelected = !isSelected;//if was selected now is not, if was not selected it is now.
             GameObject selected = GameObject.Find("SelectedUnit");//get the "inviseble" unit
             if (GameObject.Find(selected.GetComponent<SelectedUnitMove>().CurrUnitName) != null && GameObject.Find(selected.GetComponent<SelectedUnitMove>().CurrUnitName) != transform.gameObject)//if there was a friendly unit selected and is not the same unit
