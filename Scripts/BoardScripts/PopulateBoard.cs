@@ -28,8 +28,8 @@ public class PopulateBoard : MonoBehaviour {
 
     private GameObject currentTile;
 
-	// Use this for initialization
-	void Start () {
+	// Use this for initialization this goes FIRST
+	public void StartPopulateBoard () {
         TKey = KeyCode.Space;
         height = tile.transform.localScale.y;
         width = tile.transform.localScale.z;

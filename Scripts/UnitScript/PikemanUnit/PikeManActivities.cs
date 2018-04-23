@@ -12,8 +12,8 @@ public class PikeManActivities : MonoBehaviour {
     bool attacked = false;
     bool moved = false;
 
-    // Use this for initialization
-    void Start()
+    // Use this for initialization this goes first
+    public void StartPikeManActivities()
     {
         transform.GetComponent<BasicUnitProperties>().SetAttack(attack);
         transform.GetComponent<BasicUnitProperties>().SetRange(range);
@@ -31,7 +31,7 @@ public class PikeManActivities : MonoBehaviour {
         this.team = transform.GetComponent<BasicUnitProperties>().GetTeam();
         this.speed = transform.GetComponent<BasicUnitProperties>().GetSpeed();
         this.initiative = transform.GetComponent<BasicUnitProperties>().GetInitiative();
-        if (transform.GetComponent<BasicUnitProperties>().attacked && transform.GetComponent<BasicUnitProperties>().moved)
+        if (transform.GetComponent<BasicUnitProperties>().attacked || transform.GetComponent<BasicUnitProperties>().moved)
         {
             transform.GetComponent<BasicUnitProperties>().finishedTurn = true;
         }

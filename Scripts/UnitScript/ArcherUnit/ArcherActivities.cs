@@ -8,13 +8,13 @@ public class ArcherActivities : MonoBehaviour
     int health = 100;//unit's health
     int speed = 1;// unit's speed
     int team = 2;// will be team 1 or team 2
-    int initiative = 8;
+    int initiative = 10;
     int range = 5;
     bool attacked = false;
     bool moved = false;
 
     // Use this for initialization
-    void Start()
+    public void StartArcherActivities()
     {
         transform.GetComponent<BasicUnitProperties>().SetAttack(attack);
         transform.GetComponent<BasicUnitProperties>().SetRange(range);

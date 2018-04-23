@@ -5,7 +5,7 @@ using UnityEngine;
 // this is for the unit, when it is pressed the "invisible " unit stores its data
 public class MveScript : MonoBehaviour
 {
-
+    //IS NOW IN BASIC UNIT PROPERTIES
     public bool isSelected = false;//was the unit selected
 
     // Update is called once per frame

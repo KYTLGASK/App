@@ -34,14 +34,14 @@ public class HighlightOnTouch : MonoBehaviour
     {
         transform.parent.gameObject.GetComponent<TouchDisHighlight>().DisAll(); //dishighlight all via the gameboards functions
                                                                                //(check: Assets/Scripts/BoardScript/TouchDisHighlight)
-        if (!isHighlighted)
+        /*if (!isHighlighted)
         {
             Highlight();
         }
         else
         {
             DisHighlight();
-        }
+        }*/
 
 
     }

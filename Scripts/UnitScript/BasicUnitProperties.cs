@@ -4,16 +4,47 @@ using UnityEngine;
 
 public class BasicUnitProperties : MonoBehaviour
 {
-    private int team, attack, health, initiative, speed, range;
+    public int team, attack, health, initiative, speed, range;
 
     public bool isSelected = false;
     public bool attacked = false;
     public bool moved = false;
     public bool finishedTurn = false;
     // Use this for initialization
-    void Start()
+    public void StartBasicUnitProperties()
     {
+        RandomStartPos();
+    }
 
+    void RandomStartPos()//to start at a random positon
+    {
+       
+        GameObject board = GameObject.Find("Board");
+        while (transform.parent == null)
+        {
+            
+            Random rnd = new Random();
+             int xPos = (int)Random.Range(1, board.transform.GetComponent<PopulateBoard>().gridX);//decides the random x position
+            int yPos = (int)Random.Range(1, board.transform.GetComponent<PopulateBoard>().gridY);//decides the random y position
+            /*if (team == 1)
+            {
+                xPos = Random.Range(1, 2);//decides the random y position
+                
+            }
+            else
+            {
+                xPos = Random.Range(board.transform.GetComponent<PopulateBoard>().gridX - 1, board.transform.GetComponent<PopulateBoard>().gridX);//decides the random y position
+            }*/
+            string tileName = (yPos - 1) + "," + (xPos - 1);//the names of tile are 0 based
+           
+            GameObject tile = GameObject.Find(tileName);
+            if (tile != null && tile.transform.GetChildCount() < 6)// if there is no other units(5 other children are the borders and center)
+            {
+                transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y + 0.005f, tile.transform.position.z);
+                transform.SetParent(tile.transform);
+            }
+            
+        }
     }
 
     // Update is called once per frame
@@ -33,7 +64,7 @@ public class BasicUnitProperties : MonoBehaviour
     }
     public bool HasFinished()
     {
-        return attacked;
+        return finishedTurn;
     }
 
     public void SetAttack(int attack)
@@ -160,10 +191,10 @@ public class BasicUnitProperties : MonoBehaviour
 
     public void Move()
     {
-        Debug.Log("im in");
+        //Debug.Log("im in");
         if (!IsBeingAttacked())//if unit is not being attacked 
         {
-            Debug.Log("im in and this unit is not being attacked");
+            //Debug.Log("im in and this unit is not being attacked");
             isSelected = !isSelected;//if was selected now is not, if was not selected it is now.
             GameObject selected = GameObject.Find("SelectedUnit");//get the "inviseble" unit
             if (GameObject.Find(selected.GetComponent<SelectedUnitMove>().CurrUnitName) != null && GameObject.Find(selected.GetComponent<SelectedUnitMove>().CurrUnitName) != transform.gameObject)//if there was a friendly unit selected and is not the same unit
@@ -181,4 +212,42 @@ public class BasicUnitProperties : MonoBehaviour
            
         }
     }
+
+
+
+
+    public List<GameObject> EnemyUnitsInRange()
+    {
+        GameObject board = GameObject.Find("Board");
+        List<GameObject> enemyUnitsInRange = new List<GameObject>();
+        List<GameObject> tileWithEnemyUnits = new List<GameObject>();
+        List<GameObject> tiles = new List<GameObject>();
+        for (int i = 0; i < board.transform.childCount; i++)
+        {
+            tiles.Add(board.transform.GetChild(i).gameObject);
+        }
+        //GameObject[] units = GameObject.FindGameObjectsWithTag("unit");
+        foreach (GameObject tile in tiles) {
+            if (transform.parent.GetComponent<Distance>().InRange(range, transform.parent.gameObject))
+            {
+                if(tile.transform.childCount > 5)
+                {
+                    for (int i = 0; i < tile.transform.childCount; i++)
+                    {
+                        if (tile.transform.GetChild(i).transform.name == "unit" && tile.transform.GetChild(i).GetComponent<BasicUnitProperties>().GetTeam() != team)
+                        {
+                            enemyUnitsInRange.Add(tile.transform.GetChild(i).gameObject);
+                        }
+                    }
+                }
+            }
+
+        }
+        return enemyUnitsInRange;
+    }
+
+
+
+
+
 }

@@ -8,7 +8,7 @@ public class WarriorActivities : MonoBehaviour
     int health = 100;//unit's health
     int speed = 3;// unit's speed
     int team = 1;// will be team 1 or team 2
-    int initiative = 8;
+    int initiative = 80;
     int range = 1; 
     bool attacked = false;
     bool moved = false;
@@ -18,7 +18,7 @@ public class WarriorActivities : MonoBehaviour
     {
         return transform.GetComponent<BasicUnitProperties>();
     }
-    void Start()
+    public void StartWarriorActivities()
     {
         //BasicUnitProperties bp = GetBasicUnitProps();
 
