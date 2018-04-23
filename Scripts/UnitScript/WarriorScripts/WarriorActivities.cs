@@ -10,8 +10,10 @@ public class WarriorActivities : MonoBehaviour
     int team = 1;// will be team 1 or team 2
     int initiative = 80;
     int range = 1; 
-    bool attacked = false;
-    bool moved = false;
+    //bool attacked = false;
+   // bool moved = false;
+    string unitType = "WarriorActivities";
+    string unitName = "";
     
     // Use this for initialization
     BasicUnitProperties GetBasicUnitProps()
@@ -21,13 +23,15 @@ public class WarriorActivities : MonoBehaviour
     public void StartWarriorActivities()
     {
         //BasicUnitProperties bp = GetBasicUnitProps();
-
+        unitName = transform.name;
         transform.GetComponent<BasicUnitProperties>().SetAttack(attack);
         transform.GetComponent<BasicUnitProperties>().SetRange(range);
         transform.GetComponent<BasicUnitProperties>().SetHealth(health);
         transform.GetComponent<BasicUnitProperties>().SetTeam(team);
         transform.GetComponent<BasicUnitProperties>().SetSpeed(speed);
         transform.GetComponent<BasicUnitProperties>().SetInitiative(initiative);
+        transform.GetComponent<BasicUnitProperties>().SetUnitType(unitType);
+        transform.GetComponent<BasicUnitProperties>().SetUnitName(unitName);
     }
 
     // Update is called once per frame

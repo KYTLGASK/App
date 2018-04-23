@@ -10,6 +10,8 @@ public class BasicUnitProperties : MonoBehaviour
     public bool attacked = false;
     public bool moved = false;
     public bool finishedTurn = false;
+    public string unitType;
+    public string unitName;
     // Use this for initialization
     public void StartBasicUnitProperties()
     {
@@ -72,6 +74,16 @@ public class BasicUnitProperties : MonoBehaviour
         this.attack = attack;
     }
 
+    public void SetUnitType(string unitType)
+    {
+        this.unitType = unitType;
+    }
+
+    public void SetUnitName(string unitName)
+    {
+        this.unitName = unitName;
+    }
+
     public void SetRange(int range)
     {
         this.range = range;
@@ -109,6 +121,16 @@ public class BasicUnitProperties : MonoBehaviour
         return range;
     }
 
+    public string GetUnitType()
+    {
+        return unitType;
+    }
+
+    public string GetUnitName()
+    {
+        return unitName;
+    }
+
     public int GetHealth()
     {
         return health;
@@ -141,7 +163,7 @@ public class BasicUnitProperties : MonoBehaviour
     {
         GameObject invisible = GameObject.Find("SelectedUnit");//the invisible 
         GameObject attackingUnit = GameObject.Find(invisible.GetComponent<SelectedUnitMove>().CurrUnitName);//the attacking unit
-        if ((invisible != (null)) && (attackingUnit != (null)))//if they both are not null
+        if ((invisible != (null)) && (attackingUnit != (null)) && !attackingUnit.transform.GetComponent<BasicUnitProperties>().HasAttacked())//if they both are not null
         {
             return (invisible.GetComponent<SelectedUnitMove>().isSelected &&
             attackingUnit.GetComponent<BasicUnitProperties>().GetTeam() != team && attackingUnit.transform.parent.GetComponent<Distance>().InRange(attackingUnit.GetComponent<BasicUnitProperties>().GetRange(), transform.parent.gameObject));// if there was a selected unit with different team number and this one is in range of the attacking unit's range

@@ -10,18 +10,22 @@ public class ArcherActivities : MonoBehaviour
     int team = 2;// will be team 1 or team 2
     int initiative = 10;
     int range = 5;
-    bool attacked = false;
-    bool moved = false;
+    //bool attacked = false;
+    //bool moved = false;
+    string unitType = "ArcherActivities";
+    string unitName = "";
 
     // Use this for initialization
     public void StartArcherActivities()
     {
+        unitName = transform.name;
         transform.GetComponent<BasicUnitProperties>().SetAttack(attack);
         transform.GetComponent<BasicUnitProperties>().SetRange(range);
         transform.GetComponent<BasicUnitProperties>().SetHealth(health);
         transform.GetComponent<BasicUnitProperties>().SetTeam(team);
         transform.GetComponent<BasicUnitProperties>().SetSpeed(speed);
         transform.GetComponent<BasicUnitProperties>().SetInitiative(initiative);
+        transform.GetComponent<BasicUnitProperties>().SetUnitType(unitType);
     }
 
     // Update is called once per frame

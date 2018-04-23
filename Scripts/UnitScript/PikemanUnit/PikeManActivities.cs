@@ -9,18 +9,23 @@ public class PikeManActivities : MonoBehaviour {
     int team = 2;// will be team 1 or team 2
     int initiative = 8;
     int range = 2;
-    bool attacked = false;
-    bool moved = false;
+    //bool moved = false;
+    //bool attacked = false;
+    string unitType = "PikeManActivities";
+    string unitName = "";
 
     // Use this for initialization this goes first
     public void StartPikeManActivities()
     {
+        unitName = transform.name;
         transform.GetComponent<BasicUnitProperties>().SetAttack(attack);
         transform.GetComponent<BasicUnitProperties>().SetRange(range);
         transform.GetComponent<BasicUnitProperties>().SetHealth(health);
         transform.GetComponent<BasicUnitProperties>().SetTeam(team);
         transform.GetComponent<BasicUnitProperties>().SetSpeed(speed);
         transform.GetComponent<BasicUnitProperties>().SetInitiative(initiative);
+        transform.GetComponent<BasicUnitProperties>().SetUnitType(unitType);
+        transform.GetComponent<BasicUnitProperties>().SetUnitName(unitName);
     }
 
     // Update is called once per frame
