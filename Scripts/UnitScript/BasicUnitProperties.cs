@@ -12,6 +12,8 @@ public class BasicUnitProperties : MonoBehaviour
     public bool finishedTurn = false;
     public string unitType;
     public string unitName;
+    public bool isTargeted = true;
+    //public string name;
     // Use this for initialization
     public void StartBasicUnitProperties()
     {
@@ -258,6 +260,7 @@ public class BasicUnitProperties : MonoBehaviour
                     {
                         if (tile.transform.GetChild(i).transform.name == "unit" && tile.transform.GetChild(i).GetComponent<BasicUnitProperties>().GetTeam() != team)
                         {
+                            //tile.transform.GetChild(i).GetComponent<>()
                             enemyUnitsInRange.Add(tile.transform.GetChild(i).gameObject);
                         }
                     }

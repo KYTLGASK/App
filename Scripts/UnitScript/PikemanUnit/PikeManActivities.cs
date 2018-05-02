@@ -13,7 +13,11 @@ public class PikeManActivities : MonoBehaviour {
     //bool attacked = false;
     string unitType = "PikeManActivities";
     string unitName = "";
+    public Material pikeManTargetedTeam1;//This value is the material when this unit is targeted, you will enter it in UnitPikeMan prefab through the inspector by drag and drop
+    public Material pikeManTargetedTeam2;
 
+    public Material pikeManTeam1;
+    public Material pikeManTeam2;
     // Use this for initialization this goes first
     public void StartPikeManActivities()
     {
@@ -26,6 +30,14 @@ public class PikeManActivities : MonoBehaviour {
         transform.GetComponent<BasicUnitProperties>().SetInitiative(initiative);
         transform.GetComponent<BasicUnitProperties>().SetUnitType(unitType);
         transform.GetComponent<BasicUnitProperties>().SetUnitName(unitName);
+        if (team == 1)
+        {
+            transform.GetComponent<MeshRenderer>().material = pikeManTeam1;
+        }
+        else
+        {
+            transform.GetComponent<MeshRenderer>().material = pikeManTeam2;
+        }
     }
 
     // Update is called once per frame
@@ -40,5 +52,29 @@ public class PikeManActivities : MonoBehaviour {
         {
             transform.GetComponent<BasicUnitProperties>().finishedTurn = true;
         }
+
+        if (transform.GetComponent<BasicUnitProperties>().isTargeted)
+        {
+            //transform.GetComponent<MeshRenderer>().material = targeted;
+        }
+        if (transform.GetComponent<BasicUnitProperties>().isTargeted)
+        {
+            Debug.Log("targeted");
+            SetTargeted();
+        }
+    }
+
+    public void SetTargeted()
+    {
+        if (team == 1)
+        {
+            //transform.GetComponent<Renderer>().material = pikeManTargetedTeam1;
+        }
+
+        else
+        {
+            //transform.GetComponent<Renderer>().material = pikeManTargetedTeam2;
+        }
+
     }
 }

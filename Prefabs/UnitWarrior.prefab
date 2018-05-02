@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114560426412369034}
   - component: {fileID: 114275755043385058}
   - component: {fileID: 114601889288301106}
+  - component: {fileID: 114811604150059984}
   m_Layer: 0
   m_Name: UnitWarrior
   m_TagString: unit
@@ -118,9 +119,13 @@ MonoBehaviour:
   initiative: 0
   speed: 0
   range: 0
+  isSelected: 0
   attacked: 0
   moved: 0
   finishedTurn: 0
+  unitType: 
+  unitName: 
+  isTargeted: 1
 --- !u!114 &114275755043385058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -154,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc12d1949b477640938ddd69779833e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitProperties: {fileID: 0}
 --- !u!114 &114627964115188180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,6 +172,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSelected: 0
+--- !u!114 &114811604150059984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1702281360054690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacf62e017275e245bd129c5910ef15a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114960088037051732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -177,3 +194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 322a3cd84b3c47f4aa2102708b678bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  warriorTargetedTeam1: {fileID: 2100000, guid: 5b896a2fe0cbfec448e881073dc64ff6,
+    type: 2}
+  warriorTargetedTeam2: {fileID: 2100000, guid: e40af61b57b79a441ab0ab40ee3791e6,
+    type: 2}
+  warriorTeam1: {fileID: 2100000, guid: bff2ff08286af9c468079a220b6a5dbb, type: 2}
+  warriorTeam2: {fileID: 2100000, guid: 4da60364e0ca759468005726d6691b1c, type: 2}

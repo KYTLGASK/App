@@ -14,8 +14,12 @@ public class ArcherActivities : MonoBehaviour
     //bool moved = false;
     string unitType = "ArcherActivities";
     string unitName = "";
-
+    public Material archerTargetedTeam1; //This value is the material when this unit is targeted, you will enter it in UnitArcher prefab through the inspector by drag and drop
+    public Material archerTargetedTeam2;
     // Use this for initialization
+    public Material archerTeam1;
+    public Material archerTeam2;
+
     public void StartArcherActivities()
     {
         unitName = transform.name;
@@ -26,6 +30,14 @@ public class ArcherActivities : MonoBehaviour
         transform.GetComponent<BasicUnitProperties>().SetSpeed(speed);
         transform.GetComponent<BasicUnitProperties>().SetInitiative(initiative);
         transform.GetComponent<BasicUnitProperties>().SetUnitType(unitType);
+        if (team == 1)
+        {
+            transform.GetComponent<Renderer>().material = archerTeam1;
+        }
+        else
+        {
+            transform.GetComponent<Renderer>().material = archerTeam2;
+        }
     }
 
     // Update is called once per frame
@@ -40,5 +52,25 @@ public class ArcherActivities : MonoBehaviour
         {
             transform.GetComponent<BasicUnitProperties>().finishedTurn = true;
         }
+
+       // if (transform.GetComponent<BasicUnitProperties>().isTargeted)
+        //{
+        //    Debug.Log("targeted");
+       //     SetTargeted();
+      //  }
+    }
+
+    public void SetTargeted()
+    {
+        if (team == 1)
+        {
+            transform.GetComponent<Renderer>().material = archerTargetedTeam1;
+        }
+
+        else
+        {
+            transform.GetComponent<Renderer>().material = archerTargetedTeam2;
+        }
+
     }
 }

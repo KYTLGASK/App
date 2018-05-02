@@ -7,22 +7,23 @@ public class WarriorActivities : MonoBehaviour
     int attack = 50;//attack of the unit
     int health = 100;//unit's health
     int speed = 3;// unit's speed
-    int team = 1;// will be team 1 or team 2
+    int team = 1;// will be team 1(blue) or team 2(red)
     int initiative = 80;
     int range = 1; 
-    //bool attacked = false;
-   // bool moved = false;
     string unitType = "WarriorActivities";
     string unitName = "";
     
+    public Material warriorTargetedTeam1;//This value is the material when this unit is targeted, you will enter it in UnitWarrior prefab through the inspector by drag and drop
+    public Material warriorTargetedTeam2;
+
+    public Material warriorTeam1;
+    public Material warriorTeam2;
+
     // Use this for initialization
-    BasicUnitProperties GetBasicUnitProps()
-    {
-        return transform.GetComponent<BasicUnitProperties>();
-    }
+    
     public void StartWarriorActivities()
     {
-        //BasicUnitProperties bp = GetBasicUnitProps();
+        
         unitName = transform.name;
         transform.GetComponent<BasicUnitProperties>().SetAttack(attack);
         transform.GetComponent<BasicUnitProperties>().SetRange(range);
@@ -32,6 +33,18 @@ public class WarriorActivities : MonoBehaviour
         transform.GetComponent<BasicUnitProperties>().SetInitiative(initiative);
         transform.GetComponent<BasicUnitProperties>().SetUnitType(unitType);
         transform.GetComponent<BasicUnitProperties>().SetUnitName(unitName);
+        if (team == 1)
+        {
+            transform.GetComponent<Renderer>().material = warriorTeam1;
+        }
+        else
+        {
+            transform.GetComponent<Renderer>().material = warriorTeam2;
+        }
+
+        //Material[] materials = GameObject.FindObjectOfType<Material>();
+        //GameObject.Find
+
     }
 
     // Update is called once per frame
@@ -46,5 +59,23 @@ public class WarriorActivities : MonoBehaviour
         {
             transform.GetComponent<BasicUnitProperties>().finishedTurn = true;
         }
+        if(transform.GetComponent<BasicUnitProperties>().isTargeted) {
+            Debug.Log("targeted");
+            SetTargeted();
+        }
+    }
+
+    public void SetTargeted()
+    {
+        if (team == 1)
+        {
+            //transform.GetComponent<Renderer>().material = warriorTargetedTeam1;
+        }
+
+        else
+        {
+            //transform.GetComponent<Renderer>().material = warriorTargetedTeam2;
+        }
+
     }
 }

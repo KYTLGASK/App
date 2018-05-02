@@ -40,10 +40,10 @@ public class Turns : MonoBehaviour
             {
                 //Debug.Log("player1FinishedTurn = true");
                 player1FinishedTurn = true;//player one finished turn
-                NextUnitTurn(p1Units);// changes the order of p1 units
                 p1Units[0].GetComponent<BasicUnitProperties>().finishedTurn = false;//p1 current unit's(the one that just finished his turn) finished attacked and moved flags shall be negative 
                 p1Units[0].GetComponent<BasicUnitProperties>().attacked = false;//p1 current unit's(the one that just finished his turn) finished attacked and moved flags shall be negative 
                 p1Units[0].GetComponent<BasicUnitProperties>().moved = false;//p1 current unit's(the one that just finished his turn) finished attacked and moved flags shall be negative 
+                NextUnitTurn(p1Units);// changes the order of p1 units
                 //DiselectAllUnits();//We may need this if shit goes crazy
             }
             else if (p1Units.Count != 0 && p2Units.Count != 0)//if the unit did not end his turn    
@@ -59,10 +59,11 @@ public class Turns : MonoBehaviour
                 //Debug.Log("player2FinishedTurn = true");
                 player1FinishedTurn = false;
                 player2FinishedTurn = true;
-                NextUnitTurn(p2Units);
+               
                 p2Units[0].GetComponent<BasicUnitProperties>().finishedTurn = false;
                 p2Units[0].GetComponent<BasicUnitProperties>().attacked = false;
                 p2Units[0].GetComponent<BasicUnitProperties>().moved = false;
+                NextUnitTurn(p2Units);
                 //DiselectAllUnits();//We may need this if shit goes crazy
             }
             else if (p1Units.Count != 0 && p2Units.Count != 0)
@@ -180,6 +181,7 @@ public class Turns : MonoBehaviour
                 }
             }
         }
+
     }
     //diselects all units and the invisible one too(not sure if we need this tho)
     void DiselectAllUnits()
