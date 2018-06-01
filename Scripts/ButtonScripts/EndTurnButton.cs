@@ -23,7 +23,7 @@ public class EndTurnButton : MonoBehaviour {
         currUnit.GetComponent<BasicUnitProperties>().moved = false;
         currUnit.GetComponent<BasicUnitProperties>().attacked = false;
         
-        if (transform.GetComponent<Turns>().player1Turn)
+        /*if (transform.GetComponent<Turns>().player1Turn)
         {
             transform.GetComponent<Turns>().NextUnitTurn(transform.GetComponent<Turns>().p1Units);
             transform.GetComponent<Turns>().player1FinishedTurn = true;
@@ -36,6 +36,14 @@ public class EndTurnButton : MonoBehaviour {
         }
 
         currUnit.GetComponent<BasicUnitProperties>().finishedTurn = false;
-
+        */
+        if (transform.GetComponent<Turns>().player1Turn)
+        {
+            transform.GetComponent<Turns>().EndTurn(transform.GetComponent<Turns>().p1Units);
+        }
+        else
+        {
+            transform.GetComponent<Turns>().EndTurn(transform.GetComponent<Turns>().p2Units);
+        }
     }
 }

@@ -1,6 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/*using BasicProperties;
+
+    public class WarriorActivities : BasicUnitProperties
+    {
+        this    
+    }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 public class WarriorActivities : MonoBehaviour
 {
@@ -33,6 +53,10 @@ public class WarriorActivities : MonoBehaviour
         transform.GetComponent<BasicUnitProperties>().SetInitiative(initiative);
         transform.GetComponent<BasicUnitProperties>().SetUnitType(unitType);
         transform.GetComponent<BasicUnitProperties>().SetUnitName(unitName);
+        transform.GetComponent<BasicUnitProperties>().unitTargetedTeam1 = warriorTargetedTeam1;
+        transform.GetComponent<BasicUnitProperties>().unitTargetedTeam2 = warriorTargetedTeam2;
+        transform.GetComponent<BasicUnitProperties>().unitTeam1 = warriorTeam1;
+        transform.GetComponent<BasicUnitProperties>().unitTeam2 = warriorTeam2;
         if (team == 1)
         {
             transform.GetComponent<Renderer>().material = warriorTeam1;
@@ -59,23 +83,7 @@ public class WarriorActivities : MonoBehaviour
         {
             transform.GetComponent<BasicUnitProperties>().finishedTurn = true;
         }
-        if(transform.GetComponent<BasicUnitProperties>().isTargeted) {
-            Debug.Log("targeted");
-            SetTargeted();
-        }
     }
 
-    public void SetTargeted()
-    {
-        if (team == 1)
-        {
-            //transform.GetComponent<Renderer>().material = warriorTargetedTeam1;
-        }
-
-        else
-        {
-            //transform.GetComponent<Renderer>().material = warriorTargetedTeam2;
-        }
-
-    }
+   
 }

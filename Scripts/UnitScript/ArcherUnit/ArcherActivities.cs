@@ -30,6 +30,10 @@ public class ArcherActivities : MonoBehaviour
         transform.GetComponent<BasicUnitProperties>().SetSpeed(speed);
         transform.GetComponent<BasicUnitProperties>().SetInitiative(initiative);
         transform.GetComponent<BasicUnitProperties>().SetUnitType(unitType);
+        transform.GetComponent<BasicUnitProperties>().unitTargetedTeam1 = archerTargetedTeam1;
+        transform.GetComponent<BasicUnitProperties>().unitTargetedTeam2 = archerTargetedTeam2;
+        transform.GetComponent<BasicUnitProperties>().unitTeam1 = archerTeam1;
+        transform.GetComponent<BasicUnitProperties>().unitTeam2 = archerTeam2;
         if (team == 1)
         {
             transform.GetComponent<Renderer>().material = archerTeam1;
@@ -60,17 +64,5 @@ public class ArcherActivities : MonoBehaviour
       //  }
     }
 
-    public void SetTargeted()
-    {
-        if (team == 1)
-        {
-            transform.GetComponent<Renderer>().material = archerTargetedTeam1;
-        }
-
-        else
-        {
-            transform.GetComponent<Renderer>().material = archerTargetedTeam2;
-        }
-
-    }
+   
 }

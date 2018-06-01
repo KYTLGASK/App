@@ -30,6 +30,10 @@ public class PikeManActivities : MonoBehaviour {
         transform.GetComponent<BasicUnitProperties>().SetInitiative(initiative);
         transform.GetComponent<BasicUnitProperties>().SetUnitType(unitType);
         transform.GetComponent<BasicUnitProperties>().SetUnitName(unitName);
+        transform.GetComponent<BasicUnitProperties>().unitTargetedTeam1 = pikeManTargetedTeam1;
+        transform.GetComponent<BasicUnitProperties>().unitTargetedTeam2 = pikeManTargetedTeam2;
+        transform.GetComponent<BasicUnitProperties>().unitTeam1 = pikeManTeam1;
+        transform.GetComponent<BasicUnitProperties>().unitTeam2 = pikeManTeam2;
         if (team == 1)
         {
             transform.GetComponent<MeshRenderer>().material = pikeManTeam1;
@@ -48,33 +52,11 @@ public class PikeManActivities : MonoBehaviour {
         this.team = transform.GetComponent<BasicUnitProperties>().GetTeam();
         this.speed = transform.GetComponent<BasicUnitProperties>().GetSpeed();
         this.initiative = transform.GetComponent<BasicUnitProperties>().GetInitiative();
-        if (transform.GetComponent<BasicUnitProperties>().attacked || transform.GetComponent<BasicUnitProperties>().moved)
+        if (transform.GetComponent<BasicUnitProperties>().HasAttacked() && transform.GetComponent<BasicUnitProperties>().HasMoved())
         {
             transform.GetComponent<BasicUnitProperties>().finishedTurn = true;
         }
-
-        if (transform.GetComponent<BasicUnitProperties>().isTargeted)
-        {
-            //transform.GetComponent<MeshRenderer>().material = targeted;
-        }
-        if (transform.GetComponent<BasicUnitProperties>().isTargeted)
-        {
-            Debug.Log("targeted");
-            SetTargeted();
-        }
     }
 
-    public void SetTargeted()
-    {
-        if (team == 1)
-        {
-            //transform.GetComponent<Renderer>().material = pikeManTargetedTeam1;
-        }
-
-        else
-        {
-            //transform.GetComponent<Renderer>().material = pikeManTargetedTeam2;
-        }
-
-    }
+    
 }

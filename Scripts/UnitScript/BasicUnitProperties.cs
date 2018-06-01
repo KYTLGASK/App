@@ -2,9 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+/*namespace BasicProperties
+{
+    public class BasicUnitProperties : MonoBehaviour
+    {
+        public int team;
+
+        public void printTeam() { Debug.Log(team); }
+    }
+}*/
+
+
 public class BasicUnitProperties : MonoBehaviour
 {
-    public int team, attack, health, initiative, speed, range;
+    public int team , attack, health, initiative, speed, range;//{ get; set; }
 
     public bool isSelected = false;
     public bool attacked = false;
@@ -13,6 +26,11 @@ public class BasicUnitProperties : MonoBehaviour
     public string unitType;
     public string unitName;
     public bool isTargeted = true;
+    public Material unitTargetedTeam1;
+    public Material unitTargetedTeam2;
+
+    public Material unitTeam1;
+    public Material unitTeam2;
     //public string name;
     // Use this for initialization
     public void StartBasicUnitProperties()
@@ -242,25 +260,23 @@ public class BasicUnitProperties : MonoBehaviour
 
     public List<GameObject> EnemyUnitsInRange()
     {
-        GameObject board = GameObject.Find("Board");
         List<GameObject> enemyUnitsInRange = new List<GameObject>();
+        GameObject board = GameObject.Find("Board");
         List<GameObject> tileWithEnemyUnits = new List<GameObject>();
-        List<GameObject> tiles = new List<GameObject>();
+        List<GameObject> tiles = new List<GameObject>();//all the tiles
         for (int i = 0; i < board.transform.childCount; i++)
         {
             tiles.Add(board.transform.GetChild(i).gameObject);
         }
-        //GameObject[] units = GameObject.FindGameObjectsWithTag("unit");
         foreach (GameObject tile in tiles) {
-            if (transform.parent.GetComponent<Distance>().InRange(range, transform.parent.gameObject))
+            if (transform.parent.GetComponent<Distance>().InRange(range, tile))//if the tile is in range
             {
-                if(tile.transform.childCount > 5)
+                if(tile.transform.childCount > 5)//if the tile has more than 5 children(4 borders and center)
                 {
-                    for (int i = 0; i < tile.transform.childCount; i++)
+                    for (int i = 5; i < tile.transform.childCount; i++)//i dont if we really need this
                     {
-                        if (tile.transform.GetChild(i).transform.name == "unit" && tile.transform.GetChild(i).GetComponent<BasicUnitProperties>().GetTeam() != team)
+                        if (tile.transform.GetChild(i).tag == "unit" && tile.transform.GetChild(i).GetComponent<BasicUnitProperties>().GetTeam() != team)//checking if it is a tile(maybe in the terrain there will be game objects that are tile's children too) and team numbers are different
                         {
-                            //tile.transform.GetChild(i).GetComponent<>()
                             enemyUnitsInRange.Add(tile.transform.GetChild(i).gameObject);
                         }
                     }
@@ -269,6 +285,31 @@ public class BasicUnitProperties : MonoBehaviour
 
         }
         return enemyUnitsInRange;
+    }
+
+
+    public void SetTargeted()
+    {
+        if (team == 1)
+        {
+            transform.GetComponent<Renderer>().material = unitTargetedTeam1;
+        }
+        else
+        {
+            transform.GetComponent<Renderer>().material = unitTargetedTeam2;
+        }
+    }
+
+    public void SetUnTargeted()
+    {
+        if (team == 1)
+        {
+            transform.GetComponent<Renderer>().material = unitTeam1;
+        }
+        else
+        {
+            transform.GetComponent<Renderer>().material = unitTeam2;
+        }
     }
 
 
