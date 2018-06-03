@@ -44,28 +44,27 @@ public class BasicUnitProperties : MonoBehaviour
         GameObject board = GameObject.Find("Board");
         while (transform.parent == null)
         {
-            
-            Random rnd = new Random();
-             int xPos = (int)Random.Range(1, board.transform.GetComponent<PopulateBoard>().gridX);//decides the random x position
-            int yPos = (int)Random.Range(1, board.transform.GetComponent<PopulateBoard>().gridY);//decides the random y position
-            /*if (team == 1)
+            //THE X AND THE Y ARE RETARDED(MESSED UP)
+            //Random rnd = new Random();
+            int xPos;
+            int yPos = (int)Random.Range(1, board.transform.GetComponent<PopulateBoard>().gridY+1);//decides the random y position
+            if (team == 1)
             {
-                xPos = Random.Range(1, 2);//decides the random y position
+                xPos = Random.Range(1, 3);//decides the random y position
                 
             }
             else
             {
-                xPos = Random.Range(board.transform.GetComponent<PopulateBoard>().gridX - 1, board.transform.GetComponent<PopulateBoard>().gridX);//decides the random y position
-            }*/
+                xPos = Random.Range(board.transform.GetComponent<PopulateBoard>().gridX - 1, board.transform.GetComponent<PopulateBoard>().gridX+1);//decides the random y position
+            }
             string tileName = (yPos - 1) + "," + (xPos - 1);//the names of tile are 0 based
            
             GameObject tile = GameObject.Find(tileName);
-            if (tile != null && tile.transform.GetChildCount() < 6)// if there is no other units(5 other children are the borders and center)
+            if (tile != null && tile.transform.childCount < 6)// if there is no other units(5 other children are the borders and center)
             {
                 transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y + 0.005f, tile.transform.position.z);
                 transform.SetParent(tile.transform);
             }
-            
         }
     }
 
@@ -262,7 +261,7 @@ public class BasicUnitProperties : MonoBehaviour
     {
         List<GameObject> enemyUnitsInRange = new List<GameObject>();
         GameObject board = GameObject.Find("Board");
-        List<GameObject> tileWithEnemyUnits = new List<GameObject>();
+        //List<GameObject> tileWithEnemyUnits = new List<GameObject>();
         List<GameObject> tiles = new List<GameObject>();//all the tiles
         for (int i = 0; i < board.transform.childCount; i++)
         {

@@ -14,7 +14,7 @@ public class StartScript : MonoBehaviour {
         board.transform.GetComponent<PopulateBoard>().StartPopulateBoard();
         foreach (GameObject unit in units)// for each unit start its basic activities and special ones
         {
-            unit.transform.GetComponent<BasicUnitProperties>().StartBasicUnitProperties();
+            
             if (unit.transform.GetComponent<WarriorActivities>() != null)
             {
                 unit.transform.GetComponent<WarriorActivities>().StartWarriorActivities();
@@ -27,6 +27,7 @@ public class StartScript : MonoBehaviour {
             {
                 unit.transform.GetComponent<PikeManActivities>().StartPikeManActivities();
             }
+            unit.transform.GetComponent<BasicUnitProperties>().StartBasicUnitProperties();
         }
         //board.transform.GetComponent<Turns>().StartTurns();
         generalScriptsObject.GetComponent<Turns>().StartTurns();

@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Turns : MonoBehaviour
 {
     public List<GameObject> units;
     public List<GameObject> p1Units;
     public List<GameObject> p2Units;
+
+    public Image pauseMenu;
 
     public bool player1Turn;
     //this script will be placed on board or on an empty gameobject in the scene;
@@ -43,6 +46,7 @@ public class Turns : MonoBehaviour
     // this is called from the StartScripts ONCE
     public void StartTurns()
     {
+        //pauseMenu.enabled = true;//there is update
 
         p1Units = new List<GameObject>(); //a list for all of player 1's units;
         p2Units = new List<GameObject>(); //a list for all of player 2's units;
@@ -119,35 +123,54 @@ public class Turns : MonoBehaviour
 
         AddToUnitsList(p1Units, p2Units);//fusing into one list
 
-
-        if (player1Turn)// if it is player one's turn 
+        if (!(p1Units.Count == 0 || p2Units.Count == 0))
         {
+            //pauseMenu.enabled = false;//stops the update
+            if (player1Turn)// if it is player one's turn 
+            {
 
-            if (p1Units[0].GetComponent<BasicUnitProperties>().HasFinished()) // if the unit finished his turn
-            {
-                EndTurn(p1Units);//calls the end turn function
+                if (p1Units[0].GetComponent<BasicUnitProperties>().HasFinished()) // if the unit finished his turn
+                {
+                    EndTurn(p1Units);//calls the end turn function
+                }
+                else if (p1Units.Count != 0 && p2Units.Count != 0)//if the unit did not end his turn    
+                {
+                    SetUntargetedAll();// sets all units untargeted
+                    p1Units[0].GetComponent<UnitTurn>().UnitTurnPossibilities();//highlight move and attack options(unit turn possibilities)
+                }
+
             }
-            else if (p1Units.Count != 0 && p2Units.Count != 0)//if the unit did not end his turn    
+            else if (!player1Turn)//if it is player two's turn 
             {
-                SetUntargetedAll();// sets all units untargeted
-                p1Units[0].GetComponent<UnitTurn>().UnitTurnPossibilities();//highlight move and attack options(unit turn possibilities)
+                if (p2Units[0].GetComponent<BasicUnitProperties>().HasFinished()) // if the unit finished his turn
+                {
+                    EndTurn(p2Units); //calls the end turn function
+                }
+                else if (p1Units.Count != 0 && p2Units.Count != 0)//if the unit did not end his turn    
+                {
+                    SetUntargetedAll();// sets all units untargeted
+                    p2Units[0].GetComponent<UnitTurn>().UnitTurnPossibilities();//highlight move and attack options(unit turn possibilities)
+                }
             }
 
         }
-        else if (!player1Turn)//if it is player two's turn 
+        else
         {
-            if (p2Units[0].GetComponent<BasicUnitProperties>().HasFinished()) // if the unit finished his turn
+            //pauseMenu.enabled = false;//stops the update
+            if (p1Units.Count == 0 && p2Units.Count != 0)
             {
-                EndTurn(p2Units); //calls the end turn function
+                Debug.Log("player 2 wins");
             }
-            else if (p1Units.Count != 0 && p2Units.Count != 0)//if the unit did not end his turn    
+            else if (p1Units.Count != 0 && p2Units.Count == 0)
             {
-                SetUntargetedAll();// sets all units untargeted
-                p2Units[0].GetComponent<UnitTurn>().UnitTurnPossibilities();//highlight move and attack options(unit turn possibilities)
+                Debug.Log("player 1 wins");
             }
+            else
+            {
+                Debug.Log("draw");
+            }
+
         }
-
-
     }
 
 

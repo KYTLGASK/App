@@ -32,6 +32,10 @@ public class ShowPropertiesOnHoldScript : MonoBehaviour {
 
             if (Input.GetTouch(0).phase == TouchPhase.Ended)// if you no longer hold
             {
+                if (acumTime < holdTime)
+                {
+                    transform.GetComponent<BasicUnitProperties>().Attacked();
+                }
                 acumTime = 0;
                 unitProperties.text = "";
             }
