@@ -18,7 +18,7 @@ using UnityEngine;
 public class BasicUnitProperties : MonoBehaviour
 {
     public int team , attack, health, initiative, speed, range;//{ get; set; }
-
+    public int numOfColumnsForPlayersUnits;
     public bool isSelected = false;
     public bool attacked = false;
     public bool moved = false;
@@ -44,18 +44,19 @@ public class BasicUnitProperties : MonoBehaviour
         GameObject board = GameObject.Find("Board");
         while (transform.parent == null)
         {
+            numOfColumnsForPlayersUnits = board.transform.GetComponent<PopulateBoard>().numOfColumnsForPlayersUnits;
             //THE X AND THE Y ARE RETARDED(MESSED UP)
             //Random rnd = new Random();
             int xPos;
             int yPos = (int)Random.Range(1, board.transform.GetComponent<PopulateBoard>().gridY+1);//decides the random y position
             if (team == 1)
             {
-                xPos = Random.Range(1, 3);//decides the random y position
+                xPos = Random.Range(1, numOfColumnsForPlayersUnits+1);//decides the random y position
                 
             }
             else
             {
-                xPos = Random.Range(board.transform.GetComponent<PopulateBoard>().gridX - 1, board.transform.GetComponent<PopulateBoard>().gridX+1);//decides the random y position
+                xPos = Random.Range(board.transform.GetComponent<PopulateBoard>().gridX + 1 - numOfColumnsForPlayersUnits, board.transform.GetComponent<PopulateBoard>().gridX+1);//decides the random y position
             }
             string tileName = (yPos - 1) + "," + (xPos - 1);//the names of tile are 0 based
            

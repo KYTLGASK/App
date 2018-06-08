@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Name : MonoBehaviour
 {
-
+    public Material XTerrain;
     public int row;
     public int column;
 

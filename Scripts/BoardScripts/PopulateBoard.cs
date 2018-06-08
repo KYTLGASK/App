@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PopulateBoard : MonoBehaviour {
-    
+
+
+    public int numOfColumnsForPlayersUnits = 3;
+    public int numOfMagmaTiles = 35;
     public int gridX;
     public int gridY;
     public float spacingW; //Width spacing (Y axis)
     public float spacingL; //Length spacing (X axis)
 
     public GameObject tile;
+    public GameObject x_terrain_tile;
     public Camera FirstPersonCam, ThirdPersonCam;
     public KeyCode TKey;
     public bool camSwitch = true;
@@ -28,7 +32,7 @@ public class PopulateBoard : MonoBehaviour {
 
     private GameObject currentTile;
 
-	// Use this for initialization this goes FIRST
+	// Use this for initialization, this goes FIRST
 	public void StartPopulateBoard () {
         TKey = KeyCode.Space;
         height = tile.transform.localScale.y;
@@ -62,7 +66,9 @@ public class PopulateBoard : MonoBehaviour {
             y += (width + spacingW); // (+) if initializing board from bottom up, (-) otherwise 
             x = initialX;
         }
-	}
+        PutXTerrainInNumTiles(numOfMagmaTiles);
+
+    }
 	
 	// Update is called once per frame
     void Update()
@@ -73,5 +79,30 @@ public class PopulateBoard : MonoBehaviour {
             FirstPersonCam.gameObject.SetActive(camSwitch);
             ThirdPersonCam.gameObject.SetActive(!camSwitch);
         }
+    }
+
+    void PutXTerrainInNumTiles(int numOfTiles)
+    {
+        GameObject board = GameObject.Find("Board");
+        
+        while (numOfTiles != 0)
+        {
+            int yPos = (int)Random.Range(0, board.transform.GetComponent<PopulateBoard>().gridY + 1);//decides the random y position
+            int xPos = (int)Random.Range(numOfColumnsForPlayersUnits + 1, board.transform.GetComponent<PopulateBoard>().gridX + 1 - numOfColumnsForPlayersUnits);//decides the random y position
+            string tileName = (yPos - 1) + "," + (xPos - 1);//the names of tile are 0 based
+            GameObject tile = GameObject.Find(tileName);
+            if (tile != null)
+            {
+                if (tile.transform.childCount < 6)
+                {
+                    Debug.Log("X_TERRAIN");
+                    GameObject x_tile = (GameObject)Instantiate(x_terrain_tile);
+                    x_tile.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y + 0.01f, tile.transform.position.z);
+                    //tile.transform.GetComponent<Renderer>().material = tile.GetComponent<Name>().XTerrain;
+                    numOfTiles--;
+                }
+            }
+        }
+            
     }
 }

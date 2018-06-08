@@ -287,10 +287,12 @@ MonoBehaviour:
   spacingW: 0
   spacingL: 0
   tile: {fileID: 1054645480034320, guid: d08b4b2cc7fe0014c9a4aa4882012bc9, type: 2}
+  x_terrain_tile: {fileID: 1161930320935232, guid: 91b706d32ddef364fb34db8519726b2e,
+    type: 2}
   FirstPersonCam: {fileID: 724088168}
   ThirdPersonCam: {fileID: 1603440369}
   TKey: 0
-  camSwitch: 0
+  camSwitch: 1
 --- !u!23 &525328783
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1307,10 +1309,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfed76284d322a7488eeeabd4de86c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  units: []
   p1Units: []
   p2Units: []
-  player1FinishedTurn: 0
-  player2FinishedTurn: 0
+  pauseMenu: {fileID: 0}
   player1Turn: 0
 --- !u!23 &1974800478
 MeshRenderer:

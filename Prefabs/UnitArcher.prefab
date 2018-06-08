@@ -31,7 +31,7 @@ GameObject:
   - component: {fileID: 114256174054033148}
   m_Layer: 0
   m_Name: UnitArcher
-  m_TagString: Untagged
+  m_TagString: unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,6 +160,10 @@ MonoBehaviour:
   unitType: 
   unitName: 
   isTargeted: 1
+  unitTargetedTeam1: {fileID: 0}
+  unitTargetedTeam2: {fileID: 0}
+  unitTeam1: {fileID: 0}
+  unitTeam2: {fileID: 0}
 --- !u!114 &114500780595662774
 MonoBehaviour:
   m_ObjectHideFlags: 1
