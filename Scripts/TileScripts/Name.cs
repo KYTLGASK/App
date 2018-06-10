@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Name : MonoBehaviour
 {
-    public Material XTerrain;
     public int row;
     public int column;
 
     public void SetRow(int row)
-    {
+    { 
         this.row = row;
     }
 

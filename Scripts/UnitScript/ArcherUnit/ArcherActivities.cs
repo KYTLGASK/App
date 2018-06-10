@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class ArcherActivities : MonoBehaviour
 {
-    int attack = 20;//attack of the unit
-    int health = 100;//unit's health
-    int speed = 1;// unit's speed
-    int team = 2;// will be team 1 or team 2
-    int initiative = 10;
-    int range = 5;
-    //bool attacked = false;
-    //bool moved = false;
+    //GameObject board = GameObject.Find("Board");
+
+    public int attack = 20;//attack of the unit
+    public int health = 100;//unit's health
+    public int speed = 1;// unit's speed
+    public int team = 2;// will be team 1 or team 2
+    public int initiative = 10;
+    public int range = 5;// we dont really need the 5, the archer should be able to hit everyone
+    
     string unitType = "ArcherActivities";
     string unitName = "";
     public Material archerTargetedTeam1; //This value is the material when this unit is targeted, you will enter it in UnitArcher prefab through the inspector by drag and drop
@@ -23,8 +24,9 @@ public class ArcherActivities : MonoBehaviour
     public void StartArcherActivities()
     {
         unitName = transform.name;
+        GameObject board = GameObject.Find("Board");
         transform.GetComponent<BasicUnitProperties>().SetAttack(attack);
-        transform.GetComponent<BasicUnitProperties>().SetRange(range);
+        transform.GetComponent<BasicUnitProperties>().SetRange(board.transform.GetComponent<PopulateBoard>().gridX + board.transform.GetComponent<PopulateBoard>().gridY);//the archer should be able to hit anyone
         transform.GetComponent<BasicUnitProperties>().SetHealth(health);
         transform.GetComponent<BasicUnitProperties>().SetTeam(team);
         transform.GetComponent<BasicUnitProperties>().SetSpeed(speed);
@@ -57,11 +59,7 @@ public class ArcherActivities : MonoBehaviour
             transform.GetComponent<BasicUnitProperties>().finishedTurn = true;
         }
 
-       // if (transform.GetComponent<BasicUnitProperties>().isTargeted)
-        //{
-        //    Debug.Log("targeted");
-       //     SetTargeted();
-      //  }
+      
     }
 
    

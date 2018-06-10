@@ -1,35 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/*using BasicProperties;
-
-    public class WarriorActivities : BasicUnitProperties
-    {
-        this    
-    }*/
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 public class WarriorActivities : MonoBehaviour
 {
-    int attack = 50;//attack of the unit
-    int health = 100;//unit's health
-    int speed = 3;// unit's speed
-    int team = 1;// will be team 1(blue) or team 2(red)
-    int initiative = 80;
-    int range = 1; 
+    public int attack = 50;//attack of the unit
+    public int health = 100;//unit's health
+    public int speed = 3;// unit's speed
+    public int team = 1;// will be team 1(blue) or team 2(red)
+    public int initiative = 80;
+    public int range = 1; 
     string unitType = "WarriorActivities";
     string unitName = "";
     
@@ -66,8 +47,6 @@ public class WarriorActivities : MonoBehaviour
             transform.GetComponent<Renderer>().material = warriorTeam2;
         }
 
-        //Material[] materials = GameObject.FindObjectOfType<Material>();
-        //GameObject.Find
 
     }
 

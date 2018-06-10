@@ -535,6 +535,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3ef38d525e67a41a0b5301140db5a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  XTerrain: {fileID: 0}
+  isXTerrain: 0
   isHighlighted: 0
 --- !u!114 &114421461993869500
 MonoBehaviour:
@@ -547,7 +549,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b7b923b7ec0d04d96d853b17e96ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  XTerrain: {fileID: 2100000, guid: f47ffbea7bdba9346b829ac9f8eea0fe, type: 2}
   row: 0
   column: 0
 --- !u!114 &114468056370651584

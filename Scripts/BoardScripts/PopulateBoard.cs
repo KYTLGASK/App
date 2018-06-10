@@ -6,7 +6,7 @@ public class PopulateBoard : MonoBehaviour {
 
 
     public int numOfColumnsForPlayersUnits = 3;
-    public int numOfMagmaTiles = 35;
+    int numOfMagmaTiles = 10;// must be between 0 and (gridX*gridY-numOfColumnsForPlayersUnits*gridY) or else while forever biatch
     public int gridX;
     public int gridY;
     public float spacingW; //Width spacing (Y axis)
@@ -18,7 +18,7 @@ public class PopulateBoard : MonoBehaviour {
     public KeyCode TKey;
     public bool camSwitch = true;
 
-
+    public Material magmaTerrain;
 
     private float height;
     private float width;   
@@ -38,10 +38,7 @@ public class PopulateBoard : MonoBehaviour {
         height = tile.transform.localScale.y;
         width = tile.transform.localScale.z;
         length = tile.transform.localScale.x;
-        //height = transform.localScale.y; //added by leon
-        //width = transform.localScale.y; //added by leon
-        //length = transform.localScale.y; // added by leon
-
+        
         float sumX = gridX * length + (gridX - 1) * spacingL;
         initialX = (initialX - sumX / 2) + length / 2;
 
@@ -93,12 +90,10 @@ public class PopulateBoard : MonoBehaviour {
             GameObject tile = GameObject.Find(tileName);
             if (tile != null)
             {
-                if (tile.transform.childCount < 6)
+                if (tile.transform.childCount < 6 && !(tile.transform.GetComponent<HighlightOnTouch>().isXTerrain))
                 {
-                    Debug.Log("X_TERRAIN");
-                    GameObject x_tile = (GameObject)Instantiate(x_terrain_tile);
-                    x_tile.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y + 0.01f, tile.transform.position.z);
-                    //tile.transform.GetComponent<Renderer>().material = tile.GetComponent<Name>().XTerrain;
+                    tile.transform.GetComponent<HighlightOnTouch>().isXTerrain = true;
+                    tile.transform.GetComponent<Renderer>().material = magmaTerrain;
                     numOfTiles--;
                 }
             }

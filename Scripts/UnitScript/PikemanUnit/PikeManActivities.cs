@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PikeManActivities : MonoBehaviour {
-    int attack = 40;//attack of the unit
-    int health = 100;//unit's health
-    int speed = 2;// unit's speed
-    int team = 2;// will be team 1 or team 2
-    int initiative = 8;
-    int range = 2;
-    //bool moved = false;
-    //bool attacked = false;
+    public int attack = 40;//attack of the unit
+    public int health = 100;//unit's health
+    public int speed = 2;// unit's speed
+    public int team = 2;// will be team 1 or team 2
+    public int initiative = 8;
+    public int range = 2;
+    
     string unitType = "PikeManActivities";
     string unitName = "";
     public Material pikeManTargetedTeam1;//This value is the material when this unit is targeted, you will enter it in UnitPikeMan prefab through the inspector by drag and drop

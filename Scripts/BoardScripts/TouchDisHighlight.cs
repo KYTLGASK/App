@@ -15,11 +15,12 @@ public class TouchDisHighlight : MonoBehaviour
     {
         DisAll();
     }
+
     public void DisAll()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            (transform.GetChild(i)).GetComponent<Renderer>().material.color = Color.green;
+            (transform.GetChild(i)).GetComponent<HighlightOnTouch>().DisHighlight();
         }
     }
 }

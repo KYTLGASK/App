@@ -2,19 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-/*namespace BasicProperties
-{
-    public class BasicUnitProperties : MonoBehaviour
-    {
-        public int team;
-
-        public void printTeam() { Debug.Log(team); }
-    }
-}*/
-
-
 public class BasicUnitProperties : MonoBehaviour
 {
     public int team , attack, health, initiative, speed, range;//{ get; set; }
@@ -46,7 +33,6 @@ public class BasicUnitProperties : MonoBehaviour
         {
             numOfColumnsForPlayersUnits = board.transform.GetComponent<PopulateBoard>().numOfColumnsForPlayersUnits;
             //THE X AND THE Y ARE RETARDED(MESSED UP)
-            //Random rnd = new Random();
             int xPos;
             int yPos = (int)Random.Range(1, board.transform.GetComponent<PopulateBoard>().gridY+1);//decides the random y position
             if (team == 1)
@@ -171,14 +157,6 @@ public class BasicUnitProperties : MonoBehaviour
         return initiative;
     }
 
-
-    //boolean function returns if the unit is being attacked;
-    /*GameObject GetSelectedUnit()
-    {
-        GameObject invisible = GameObject.Find("SelectedUnit");//the invisible 
-        GameObject attackingUnit = GameObject.Find(invisible.GetComponent<SelectedUnitMove>().CurrUnitName);//the attacking unit
-        return attackingUnit;
-    }*/
     public bool IsBeingAttacked()
     {
         GameObject invisible = GameObject.Find("SelectedUnit");//the invisible 
@@ -233,10 +211,8 @@ public class BasicUnitProperties : MonoBehaviour
 
     public void Move()
     {
-        //Debug.Log("im in");
         if (!IsBeingAttacked())//if unit is not being attacked 
         {
-            //Debug.Log("im in and this unit is not being attacked");
             isSelected = !isSelected;//if was selected now is not, if was not selected it is now.
             GameObject selected = GameObject.Find("SelectedUnit");//get the "inviseble" unit
             if (GameObject.Find(selected.GetComponent<SelectedUnitMove>().CurrUnitName) != null && GameObject.Find(selected.GetComponent<SelectedUnitMove>().CurrUnitName) != transform.gameObject)//if there was a friendly unit selected and is not the same unit
@@ -247,7 +223,6 @@ public class BasicUnitProperties : MonoBehaviour
             {
                 //changes the isSelected in the selected unit before
                 selected.GetComponent<SelectedUnitMove>().CurrUnitName = transform.name;//if this unit is selected store it's name in the "invisible" one
-                //moved = true;
             }
 
             selected.GetComponent<SelectedUnitMove>().isSelected = isSelected;//changes the boolean value in the "invisible" unit
@@ -262,7 +237,6 @@ public class BasicUnitProperties : MonoBehaviour
     {
         List<GameObject> enemyUnitsInRange = new List<GameObject>();
         GameObject board = GameObject.Find("Board");
-        //List<GameObject> tileWithEnemyUnits = new List<GameObject>();
         List<GameObject> tiles = new List<GameObject>();//all the tiles
         for (int i = 0; i < board.transform.childCount; i++)
         {
