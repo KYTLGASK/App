@@ -18,11 +18,12 @@ public class EndTurnButton : MonoBehaviour {
 
     public void NextUnitTurn()
     {
-        GameObject currUnit = transform.GetComponent<Turns>().p1Units[0];
+        GameObject currUnit = transform.GetComponent<Turns>().units[0];
         //here you will move on in the array or whatever Yaniv did
         currUnit.GetComponent<BasicUnitProperties>().moved = false;
         currUnit.GetComponent<BasicUnitProperties>().attacked = false;
-        
+        currUnit.GetComponent<BasicUnitProperties>().finishedTurn = false;
+        transform.GetComponent<Turns>().EndTurn();
         /*if (transform.GetComponent<Turns>().player1Turn)
         {
             transform.GetComponent<Turns>().NextUnitTurn(transform.GetComponent<Turns>().p1Units);
@@ -37,13 +38,13 @@ public class EndTurnButton : MonoBehaviour {
 
         currUnit.GetComponent<BasicUnitProperties>().finishedTurn = false;
         */
-        if (transform.GetComponent<Turns>().player1Turn)
-        {
-            transform.GetComponent<Turns>().EndTurn(transform.GetComponent<Turns>().p1Units);
-        }
-        else
-        {
-            transform.GetComponent<Turns>().EndTurn(transform.GetComponent<Turns>().p2Units);
-        }
+        //if (transform.GetComponent<Turns>().player1Turn)
+        //{
+        //    transform.GetComponent<Turns>().EndTurn(transform.GetComponent<Turns>().p1Units);
+        //}
+        //else
+        //{
+        //    transform.GetComponent<Turns>().EndTurn(transform.GetComponent<Turns>().p2Units);
+        //}
     }
 }
