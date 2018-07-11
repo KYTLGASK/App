@@ -15,7 +15,7 @@ public class OnMouseDownCallerScript : MonoBehaviour
                 transform.GetComponent<BasicUnitProperties>().Attacked();//if attacked gets attacked
             }
         }*/
-        transform.GetComponent<BasicUnitProperties>().Attacked();//if attacked gets attacked
+        //transform.GetComponent<BasicUnitProperties>().Attacked();//if attacked gets attacked
     }
     void OnMouseOver()//this is for the touch too +-
     {
