@@ -63,12 +63,12 @@ public class BasicUnitProperties : MonoBehaviour
     {
        if (isSelected)
        {
-           Debug.Log("Seting turn");
+
            SetTurnMaterial();
        }
        else
        {
-           SetFinishedTurnMaterial();
+              //SetFinishedTurnMaterial();
        }
     }
 
@@ -224,7 +224,7 @@ public class BasicUnitProperties : MonoBehaviour
     {
         if (!IsBeingAttacked())//if unit is not being attacked 
         {
-            isSelected = !isSelected;//if was selected now is not, if was not selected it is now.
+            isSelected = true;//if was selected now is not, if was not selected it is now.
             GameObject selected = GameObject.Find("SelectedUnit");//get the "inviseble" unit
             if (GameObject.Find(selected.GetComponent<SelectedUnitMove>().CurrUnitName) != null && GameObject.Find(selected.GetComponent<SelectedUnitMove>().CurrUnitName) != transform.gameObject)//if there was a friendly unit selected and is not the same unit
             {
@@ -275,28 +275,34 @@ public class BasicUnitProperties : MonoBehaviour
 
     public void SetTargeted()
     {
-        if (team == 1)
-        {
-            transform.GetComponent<Renderer>().material = unitTargetedTeam1;
+        if (!isSelected) {
+            if (team == 1)
+            {
+                transform.GetComponent<Renderer>().material = unitTargetedTeam1;
+            }
+            else
+            {
+                Debug.Log("unitTargetedTeam2");
+                transform.GetComponent<Renderer>().material = unitTargetedTeam2;
+            }
+            isTargeted = true;
         }
-        else
-        {
-            transform.GetComponent<Renderer>().material = unitTargetedTeam2;
-        }
-        isTargeted = true;
     }
 
     public void SetUnTargeted()
     {
-        if (team == 1 && isTargeted)
+        if (!isSelected)
         {
-            transform.GetComponent<Renderer>().material = unitTeam1;
+            if (team == 1)
+            {
+                transform.GetComponent<Renderer>().material = unitTeam1;
+            }
+            else
+            {
+                transform.GetComponent<Renderer>().material = unitTeam2;
+            }
+            isTargeted = false;
         }
-        else if(isTargeted)
-        {
-            transform.GetComponent<Renderer>().material = unitTeam2;
-        }
-        isTargeted = false;
     }
 
 
@@ -305,6 +311,7 @@ public class BasicUnitProperties : MonoBehaviour
     {
         if (team == 1)
         {
+            Debug.Log("hello");
             transform.GetComponent<Renderer>().material = unitTurnTeam1;
         }
         else

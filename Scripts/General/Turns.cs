@@ -25,7 +25,7 @@ public class Turns : MonoBehaviour
         units[0].GetComponent<BasicUnitProperties>().finishedTurn = false;//p1 current unit's(the one that just finished his turn) finished attacked and moved flags shall be negative 
         units[0].GetComponent<BasicUnitProperties>().attacked = false;//p1 current unit's(the one that just finished his turn) finished attacked and moved flags shall be negative 
         units[0].GetComponent<BasicUnitProperties>().moved = false;//p1 current unit's(the one that just finished his turn) finished attacked and moved flags shall be negative 
-        SetUntargetedAll();//not sure if we need this(just makin sure)
+        //SetUntargetedAll();//not sure if we need this(just makin sure)
         NextUnitTurn(units);
         DiselectAllUnits();//We may need this if shit goes crazy (i think this will fix the bug that goes off every 10-20 turns)
     }

@@ -153,6 +153,7 @@ MonoBehaviour:
   initiative: 0
   speed: 0
   range: 0
+  numOfColumnsForPlayersUnits: 0
   isSelected: 0
   attacked: 0
   moved: 0
@@ -164,6 +165,8 @@ MonoBehaviour:
   unitTargetedTeam2: {fileID: 0}
   unitTeam1: {fileID: 0}
   unitTeam2: {fileID: 0}
+  unitTurnTeam1: {fileID: 0}
+  unitTurnTeam2: {fileID: 0}
 --- !u!114 &114500780595662774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,7 +201,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0b1ad0f3e5c88458388d4b974c2dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack: 20
+  health: 100
+  speed: 1
+  team: 2
+  initiative: 10
+  range: 5
   archerTargetedTeam1: {fileID: 2100000, guid: 6c8492327dc7b60469948f3b5175a92c, type: 2}
   archerTargetedTeam2: {fileID: 2100000, guid: 636744e92bbc04349be9b7075499298a, type: 2}
+  archerTurnTeam1: {fileID: 2100000, guid: 6e4c13eae76ed6348bc262b1f59516c8, type: 2}
+  archerTurnTeam2: {fileID: 2100000, guid: a621afa359fd10e43a966921c40eadcf, type: 2}
   archerTeam1: {fileID: 2100000, guid: bf3fbd7c96b9bdf49ad309a0725c2bbc, type: 2}
   archerTeam2: {fileID: 2100000, guid: dab5650b19d3c2545b5ec1669df0b12f, type: 2}

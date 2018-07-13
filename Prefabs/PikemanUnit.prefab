@@ -130,6 +130,7 @@ MonoBehaviour:
   initiative: 0
   speed: 0
   range: 0
+  numOfColumnsForPlayersUnits: 0
   isSelected: 0
   attacked: 0
   moved: 0
@@ -137,6 +138,12 @@ MonoBehaviour:
   unitType: 
   unitName: 
   isTargeted: 1
+  unitTargetedTeam1: {fileID: 0}
+  unitTargetedTeam2: {fileID: 0}
+  unitTeam1: {fileID: 0}
+  unitTeam2: {fileID: 0}
+  unitTurnTeam1: {fileID: 0}
+  unitTurnTeam2: {fileID: 0}
 --- !u!114 &114164597591414266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -171,10 +178,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79445c95ec77d644872ee9a792a3fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack: 40
+  health: 100
+  speed: 2
+  team: 2
+  initiative: 8
+  range: 2
   pikeManTargetedTeam1: {fileID: 2100000, guid: 33f0de6c779144d4caf53832465bb09c,
     type: 2}
   pikeManTargetedTeam2: {fileID: 2100000, guid: 56749ba1a20e28247a3736898ba62a2c,
     type: 2}
+  pikeManTurnTeam1: {fileID: 2100000, guid: e9dcfe63a07a7d14eb0ca442a20f5aca, type: 2}
+  pikeManTurnTeam2: {fileID: 2100000, guid: ccc76a46d3cfeac4e9923156b34e26d1, type: 2}
   pikeManTeam1: {fileID: 2100000, guid: bc2fb0545e48f6b4fa8bfe90b4f16fca, type: 2}
   pikeManTeam2: {fileID: 2100000, guid: 1ca1ad83744ef5849b70d2f49a1ec45f, type: 2}
 --- !u!114 &114492412449639316
