@@ -14,16 +14,19 @@ public class ArcherActivities : MonoBehaviour
     public int range = 5;// we dont really need the 5, the archer should be able to hit everyone
     
     string unitType = "ArcherActivities";
-    string unitName = "";
+    //string unitName = "";
     public Material archerTargetedTeam1; //This value is the material when this unit is targeted, you will enter it in UnitArcher prefab through the inspector by drag and drop
     public Material archerTargetedTeam2;
-    // Use this for initialization
+
+    public Material archerTurnTeam1;//this material is used when it is this unit's turn
+    public Material archerTurnTeam2;
+
     public Material archerTeam1;
     public Material archerTeam2;
 
     public void StartArcherActivities()
     {
-        unitName = transform.name;
+        //unitName = transform.name;
         GameObject board = GameObject.Find("Board");
         transform.GetComponent<BasicUnitProperties>().SetAttack(attack);
         transform.GetComponent<BasicUnitProperties>().SetRange(board.transform.GetComponent<PopulateBoard>().gridX + board.transform.GetComponent<PopulateBoard>().gridY);//the archer should be able to hit anyone
@@ -36,6 +39,8 @@ public class ArcherActivities : MonoBehaviour
         transform.GetComponent<BasicUnitProperties>().unitTargetedTeam2 = archerTargetedTeam2;
         transform.GetComponent<BasicUnitProperties>().unitTeam1 = archerTeam1;
         transform.GetComponent<BasicUnitProperties>().unitTeam2 = archerTeam2;
+        transform.GetComponent<BasicUnitProperties>().unitTurnTeam1 = archerTurnTeam1;
+        transform.GetComponent<BasicUnitProperties>().unitTurnTeam2 = archerTurnTeam2;
         if (team == 1)
         {
             transform.GetComponent<Renderer>().material = archerTeam1;

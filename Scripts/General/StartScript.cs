@@ -10,8 +10,13 @@ public class StartScript : MonoBehaviour {
         GameObject[] units = GameObject.FindGameObjectsWithTag("unit");
         GameObject generalScriptsObject = GameObject.Find("GeneralScriptsObject");
 
-
+        //generalScriptsObject.transform.GetComponent<StartingData>().StartData();
         board.transform.GetComponent<PopulateBoard>().StartPopulateBoard();
+
+
+        generalScriptsObject.transform.GetComponent<StartingData>().StartData();
+
+
         foreach (GameObject unit in units)// for each unit start its basic activities and special ones
         {
             

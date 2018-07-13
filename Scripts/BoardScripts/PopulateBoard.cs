@@ -70,12 +70,12 @@ public class PopulateBoard : MonoBehaviour {
 	// Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(TKey))
-        {
-            camSwitch = !camSwitch;
-            FirstPersonCam.gameObject.SetActive(camSwitch);
-            ThirdPersonCam.gameObject.SetActive(!camSwitch);
-        }
+        //if (Input.GetKeyDown(TKey))
+        //{
+        //    camSwitch = !camSwitch;
+        //    FirstPersonCam.gameObject.SetActive(camSwitch);
+        //    ThirdPersonCam.gameObject.SetActive(!camSwitch);
+        //}
     }
 
     void PutXTerrainInNumTiles(int numOfTiles)

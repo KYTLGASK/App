@@ -15,6 +15,9 @@ public class PikeManActivities : MonoBehaviour {
     public Material pikeManTargetedTeam1;//This value is the material when this unit is targeted, you will enter it in UnitPikeMan prefab through the inspector by drag and drop
     public Material pikeManTargetedTeam2;
 
+    public Material pikeManTurnTeam1;//this material is used when it is this unit's turn
+    public Material pikeManTurnTeam2;
+
     public Material pikeManTeam1;
     public Material pikeManTeam2;
     // Use this for initialization this goes first
@@ -33,6 +36,8 @@ public class PikeManActivities : MonoBehaviour {
         transform.GetComponent<BasicUnitProperties>().unitTargetedTeam2 = pikeManTargetedTeam2;
         transform.GetComponent<BasicUnitProperties>().unitTeam1 = pikeManTeam1;
         transform.GetComponent<BasicUnitProperties>().unitTeam2 = pikeManTeam2;
+        transform.GetComponent<BasicUnitProperties>().unitTurnTeam1 = pikeManTurnTeam1;
+        transform.GetComponent<BasicUnitProperties>().unitTurnTeam2 = pikeManTurnTeam2;
         if (team == 1)
         {
             transform.GetComponent<MeshRenderer>().material = pikeManTeam1;
@@ -51,9 +56,10 @@ public class PikeManActivities : MonoBehaviour {
         this.team = transform.GetComponent<BasicUnitProperties>().GetTeam();
         this.speed = transform.GetComponent<BasicUnitProperties>().GetSpeed();
         this.initiative = transform.GetComponent<BasicUnitProperties>().GetInitiative();
-        if (transform.GetComponent<BasicUnitProperties>().HasAttacked() && transform.GetComponent<BasicUnitProperties>().HasMoved())
+        if ((transform.GetComponent<BasicUnitProperties>().HasAttacked() && transform.GetComponent<BasicUnitProperties>().HasMoved()) ||
+                    (transform.GetComponent<BasicUnitProperties>().HasMoved() && transform.GetComponent<BasicUnitProperties>().EnemyUnitsInRange().Count == 0))//if the pikeMan moved and attacked or moved and has no units to attack
         {
-            transform.GetComponent<BasicUnitProperties>().finishedTurn = true;
+            transform.GetComponent<BasicUnitProperties>().finishedTurn = true;//the unit has finished it's turn
         }
     }
 

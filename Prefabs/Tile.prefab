@@ -537,6 +537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   XTerrain: {fileID: 0}
   isXTerrain: 0
+  m_Material: {fileID: 2100000, guid: c55faac35c16bfb469fe8f505d70f365, type: 2}
   isHighlighted: 0
 --- !u!114 &114421461993869500
 MonoBehaviour:

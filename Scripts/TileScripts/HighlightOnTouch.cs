@@ -9,12 +9,12 @@ public class HighlightOnTouch : MonoBehaviour
     public Material XTerrain;
     public bool isXTerrain;
 
-    Material m_Material; // tile's material
+    public Material m_Material; // tile's material
     public bool isHighlighted = false; //if the tile is highlighted or not
 
     private void Start()
     {
-        m_Material = GetComponent<Renderer>().material;
+        //m_Material = GetComponent<Renderer>().material;
     }
 
     // Update is called once per frame
@@ -45,8 +45,8 @@ public class HighlightOnTouch : MonoBehaviour
         if (!isXTerrain)
         {
             isHighlighted = true;
-            m_Material = GetComponent<Renderer>().material;
-            m_Material.color = new Color(255, 255, 0);
+            
+            GetComponent<Renderer>().material.color = new Color(255, 255, 0);
         }
     }
 
@@ -56,8 +56,9 @@ public class HighlightOnTouch : MonoBehaviour
         if (!isXTerrain)
         {
             isHighlighted = false;
-            m_Material = GetComponent<Renderer>().material;
-            m_Material.color = Color.green;
+            //GetComponent<Renderer>().material;
+            //m_Material.color = Color.green;
+            GetComponent<Renderer>().material = m_Material;
         }
     }
 }

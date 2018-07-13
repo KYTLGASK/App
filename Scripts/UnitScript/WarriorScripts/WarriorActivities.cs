@@ -17,6 +17,9 @@ public class WarriorActivities : MonoBehaviour
     public Material warriorTargetedTeam1;//This value is the material when this unit is targeted, you will enter it in UnitWarrior prefab through the inspector by drag and drop
     public Material warriorTargetedTeam2;
 
+    public Material warriorTurnTeam1;//this material is used when it is this unit's turn
+    public Material warriorTurnTeam2;
+
     public Material warriorTeam1;
     public Material warriorTeam2;
 
@@ -38,6 +41,9 @@ public class WarriorActivities : MonoBehaviour
         transform.GetComponent<BasicUnitProperties>().unitTargetedTeam2 = warriorTargetedTeam2;
         transform.GetComponent<BasicUnitProperties>().unitTeam1 = warriorTeam1;
         transform.GetComponent<BasicUnitProperties>().unitTeam2 = warriorTeam2;
+
+        transform.GetComponent<BasicUnitProperties>().unitTurnTeam1 = warriorTurnTeam1;
+        transform.GetComponent<BasicUnitProperties>().unitTurnTeam2 = warriorTurnTeam2;
         if (team == 1)
         {
             transform.GetComponent<Renderer>().material = warriorTeam1;
@@ -58,9 +64,10 @@ public class WarriorActivities : MonoBehaviour
         this.team = transform.GetComponent<BasicUnitProperties>().GetTeam();
         this.speed = transform.GetComponent<BasicUnitProperties>().GetSpeed();
         this.initiative = transform.GetComponent<BasicUnitProperties>().GetInitiative();
-        if (transform.GetComponent<BasicUnitProperties>().attacked && transform.GetComponent<BasicUnitProperties>().moved)
+        if ((transform.GetComponent<BasicUnitProperties>().attacked && transform.GetComponent<BasicUnitProperties>().moved) ||
+                    (transform.GetComponent<BasicUnitProperties>().HasMoved() && transform.GetComponent<BasicUnitProperties>().EnemyUnitsInRange().Count == 0))//if the unit attacked and moved or moved and has no enemy unit in range
         {
-            transform.GetComponent<BasicUnitProperties>().finishedTurn = true;
+            transform.GetComponent<BasicUnitProperties>().finishedTurn = true;// the unit has finished it's turn
         }
     }
 

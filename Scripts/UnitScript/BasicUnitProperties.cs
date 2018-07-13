@@ -18,6 +18,9 @@ public class BasicUnitProperties : MonoBehaviour
 
     public Material unitTeam1;
     public Material unitTeam2;
+
+    public Material unitTurnTeam1;//this material is used when it is this unit's turn
+    public Material unitTurnTeam2;
     //public string name;
     // Use this for initialization
     public void StartBasicUnitProperties()
@@ -58,7 +61,15 @@ public class BasicUnitProperties : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       if (isSelected)
+       {
+           Debug.Log("Seting turn");
+           SetTurnMaterial();
+       }
+       else
+       {
+           SetFinishedTurnMaterial();
+       }
     }
 
     
@@ -272,9 +283,37 @@ public class BasicUnitProperties : MonoBehaviour
         {
             transform.GetComponent<Renderer>().material = unitTargetedTeam2;
         }
+        isTargeted = true;
     }
 
     public void SetUnTargeted()
+    {
+        if (team == 1 && isTargeted)
+        {
+            transform.GetComponent<Renderer>().material = unitTeam1;
+        }
+        else if(isTargeted)
+        {
+            transform.GetComponent<Renderer>().material = unitTeam2;
+        }
+        isTargeted = false;
+    }
+
+
+
+    public void SetTurnMaterial()
+    {
+        if (team == 1)
+        {
+            transform.GetComponent<Renderer>().material = unitTurnTeam1;
+        }
+        else
+        {
+            transform.GetComponent<Renderer>().material = unitTurnTeam2;
+        }
+    }
+
+    public void SetFinishedTurnMaterial()
     {
         if (team == 1)
         {
