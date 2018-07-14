@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // this is for the unit, when it is pressed the "invisible " unit stores its data
-public class MveScript : MonoBehaviour
+public class MoveScript : MonoBehaviour
 {
     //IS NOW IN BASIC UNIT PROPERTIES
     public bool isSelected = false;//was the unit selected

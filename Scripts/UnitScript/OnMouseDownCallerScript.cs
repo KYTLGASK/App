@@ -19,6 +19,8 @@ public class OnMouseDownCallerScript : MonoBehaviour
     }
     void OnMouseOver()//this is for the touch too +-
     {
-        transform.GetComponent<ShowPropertiesOnHoldScript>().OnMouseOverFunction();
+       
+            transform.GetComponent<ShowPropertiesOnHoldScript>().OnMouseOverFunction();
+        
     }
 }

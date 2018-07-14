@@ -17,7 +17,9 @@ public class UnitTurn : MonoBehaviour {
     // this highlights the units options(tergets and movement options)
     public void UnitTurnPossibilities()
     {
+
         List<GameObject> enemyUnits = transform.GetComponent<BasicUnitProperties>().EnemyUnitsInRange();//list of the enemy units which are in range
+        //Turns.allowTouch = true;
 
         if (!transform.GetComponent<BasicUnitProperties>().IsSelected()){ //if the unit is selected store it's data in the invisible one
             transform.GetComponent<BasicUnitProperties>().Move();    

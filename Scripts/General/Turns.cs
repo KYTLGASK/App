@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class Turns : MonoBehaviour
 {
     public List<GameObject> units;
-
+    public TextMesh teamWon;
+    public GameObject endTurnPanel;
+    //public static bool allowTouch = true;
     // Use this for initialization
     // this is called from the StartScripts ONCE
     public void StartTurns()
@@ -21,6 +23,8 @@ public class Turns : MonoBehaviour
     //public void EndTurn(List<GameObject> currUnitsTeam)//the parameter is the unit list of the team that ended it's turn now 
     public void EndTurn()
     {
+        
+        //allowTouch = false;
         KeepAliveOnly(units);
         units[0].GetComponent<BasicUnitProperties>().finishedTurn = false;//p1 current unit's(the one that just finished his turn) finished attacked and moved flags shall be negative 
         units[0].GetComponent<BasicUnitProperties>().attacked = false;//p1 current unit's(the one that just finished his turn) finished attacked and moved flags shall be negative 
@@ -28,6 +32,9 @@ public class Turns : MonoBehaviour
         //SetUntargetedAll();//not sure if we need this(just makin sure)
         NextUnitTurn(units);
         DiselectAllUnits();//We may need this if shit goes crazy (i think this will fix the bug that goes off every 10-20 turns)
+        
+        ShowPropertiesOnHoldScript.acumTime = 0;//there was a bug and this fixes it in ShowPropertiesOnHold
+
     }
 
 
@@ -41,23 +48,38 @@ public class Turns : MonoBehaviour
         {
             if(units[0].GetComponent<BasicUnitProperties>().HasFinished())//if the unit finished it's turn
             {
-                EndTurn();
+                if (Input.touchCount == 0) {
+                    EndTurn();
+                }
+               
             }
             else if (!(returnNumOfTeamUnits(1) == 0 || returnNumOfTeamUnits(2) == 0))//if the unit did not end his turn    
             {
                 SetUntargetedAll();// sets all units untargeted
                 units[0].GetComponent<UnitTurn>().UnitTurnPossibilities();//highlight move and attack options(unit turn possibilities)
+                //allowTouch = true;
             }
         }
         else
         {
             if (returnNumOfTeamUnits(1) == 0 || returnNumOfTeamUnits(2) != 0)//yes
             {
-                Debug.Log("player 2 wins");
+                //Debug.Log("player 2 wins");
+                endTurnPanel.SetActive(true);
+                GameObject.Find("TheGameObjects").SetActive(false);
+                GameObject.Find("Buttons").SetActive(false);
+                teamWon.text = "PLAYER RED WINS";
+                teamWon.color = new Color(255, 0, 0);
+
             }
             else if (returnNumOfTeamUnits(1) != 0 || returnNumOfTeamUnits(2) == 0)
             {
-                Debug.Log("player 1 wins");
+                //Debug.Log("player 1 wins");
+                endTurnPanel.SetActive(true);
+                GameObject.Find("TheGameObjects").SetActive(false);
+                GameObject.Find("Buttons").SetActive(false);
+                teamWon.text = "PLAYER BLUE WINS";
+                teamWon.color = new Color(0, 0, 255);
             }
             else
             {

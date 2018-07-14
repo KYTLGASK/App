@@ -282,7 +282,7 @@ public class BasicUnitProperties : MonoBehaviour
             }
             else
             {
-                Debug.Log("unitTargetedTeam2");
+                //Debug.Log("unitTargetedTeam2");
                 transform.GetComponent<Renderer>().material = unitTargetedTeam2;
             }
             isTargeted = true;
@@ -311,7 +311,7 @@ public class BasicUnitProperties : MonoBehaviour
     {
         if (team == 1)
         {
-            Debug.Log("hello");
+            //Debug.Log("hello");
             transform.GetComponent<Renderer>().material = unitTurnTeam1;
         }
         else
